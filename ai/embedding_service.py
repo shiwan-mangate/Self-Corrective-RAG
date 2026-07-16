@@ -9,25 +9,27 @@ logger = logging.getLogger(__name__)
 
 class AIEmbeddingService:
     """
-    Core AI utility for vector generation via API.
-    Replaces local SentenceTransformers to save RAM on cloud deployments.
-    Returns native numpy arrays for downstream mathematical efficiency.
+    Core AI utility for vector generation via Hugging Face API.
+    Replaces local SentenceTransformers to save massive amounts of RAM.
+    Returns native numpy arrays for downstream pgvector efficiency.
     """
     def __init__(self, model_name: str = "BAAI/bge-small-en-v1.5", device: str = None):
         self.model_name = model_name
         
-        # BAAI/bge-small-en-v1.5 has exactly 384 dimensions. 
+        # bge-small-en-v1.5 has exactly 384 dimensions. 
         # This MUST remain 384 to match your existing pgvector database columns.
         self.dimension = 384 
         
         # Hugging Face Free Serverless Inference API
         self.api_url = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{self.model_name}"
         
-        # Grab token if available to prevent rate-limiting
+        # Securely grab the token from the environment
         self.hf_token = os.getenv("HF_TOKEN")
+        if not self.hf_token:
+            logger.warning("HF_TOKEN is missing from environment. API calls may be rate-limited.")
+
         self.headers = {"Authorization": f"Bearer {self.hf_token}"} if self.hf_token else {}
         
-        # device arg is kept in the signature so other files don't break, but is ignored.
         logger.info(f"Initialized API-based Embedding Model '{self.model_name}' (Dim: {self.dimension})")
 
     def embed_texts(self, texts: List[str], batch_size: int = 32) -> np.ndarray:
@@ -45,10 +47,15 @@ class AIEmbeddingService:
             for i in range(0, len(texts), batch_size):
                 batch_texts = texts[i:i + batch_size]
                 
+                # Send the request to Hugging Face
                 response = requests.post(
                     self.api_url, 
                     headers=self.headers, 
-                    json={"inputs": batch_texts, "options": {"wait_for_model": True}}
+                    json={
+                        "inputs": batch_texts, 
+                        "options": {"wait_for_model": True} # Wait if model is loading on HF servers
+                    },
+                    timeout=30
                 )
                 
                 if response.status_code != 200:
@@ -60,7 +67,7 @@ class AIEmbeddingService:
             logger.error(f"API Embedding generation failed: {e}")
             raise RuntimeError(f"API Embedding generation failed: {e}")
 
-        # Convert to numpy array (np.float32 for pgvector compatibility)
+        # Convert the JSON lists back into a highly efficient float32 numpy array
         vectors = np.array(all_vectors, dtype=np.float32)
         
         # Manually normalize vectors (L2 norm) to replicate local sentence-transformer behavior
