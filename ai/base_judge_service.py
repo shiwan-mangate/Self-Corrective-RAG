@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import TypeVar, Type
 from pydantic import BaseModel
 
-# T represents any Pydantic BaseModel
+
 T = TypeVar('T', bound=BaseModel)
 
 class BaseAIJudgeService(ABC):

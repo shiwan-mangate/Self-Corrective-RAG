@@ -16,14 +16,13 @@ class AIEmbeddingService:
     def __init__(self, model_name: str = "BAAI/bge-small-en-v1.5", device: str = None):
         self.model_name = model_name
         
-        # bge-small-en-v1.5 has exactly 384 dimensions. 
-        # This MUST remain 384 to match your existing pgvector database columns.
+
         self.dimension = 384 
         
-        # Hugging Face Free Serverless Inference API
+       
         self.api_url = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{self.model_name}"
         
-        # Securely grab the token from the environment
+      
         self.hf_token = os.getenv("HF_TOKEN")
         if not self.hf_token:
             logger.warning("HF_TOKEN is missing from environment. API calls may be rate-limited.")
@@ -43,17 +42,17 @@ class AIEmbeddingService:
         all_vectors = []
         
         try:
-            # Process in batches to respect API payload limits
+            
             for i in range(0, len(texts), batch_size):
                 batch_texts = texts[i:i + batch_size]
                 
-                # Send the request to Hugging Face
+               
                 response = requests.post(
                     self.api_url, 
                     headers=self.headers, 
                     json={
                         "inputs": batch_texts, 
-                        "options": {"wait_for_model": True} # Wait if model is loading on HF servers
+                        "options": {"wait_for_model": True} 
                     },
                     timeout=30
                 )
@@ -67,12 +66,12 @@ class AIEmbeddingService:
             logger.error(f"API Embedding generation failed: {e}")
             raise RuntimeError(f"API Embedding generation failed: {e}")
 
-        # Convert the JSON lists back into a highly efficient float32 numpy array
+     
         vectors = np.array(all_vectors, dtype=np.float32)
         
-        # Manually normalize vectors (L2 norm) to replicate local sentence-transformer behavior
+        
         norms = np.linalg.norm(vectors, axis=1, keepdims=True)
-        norms = np.where(norms == 0, 1e-10, norms) # Prevent division by zero
+        norms = np.where(norms == 0, 1e-10, norms) 
         vectors = vectors / norms
         
         self._validate_vectors(vectors, expected_count=len(texts))

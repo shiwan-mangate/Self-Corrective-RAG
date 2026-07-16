@@ -5,7 +5,7 @@ from fastapi import Request, FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 
-# Import the immutable domain exceptions
+
 from shared.exceptions import (
     SelfHealingRAGError,
     SessionNotFoundError,
@@ -17,11 +17,7 @@ from api.exceptions import EvaluationNotFoundError
 
 logger = logging.getLogger(__name__)
 
-# ==========================================
-# Exception to HTTP Mapping Registry
-# ==========================================
-# Since the domain exceptions cannot be modified to contain HTTP metadata,
-# the API layer takes ownership of mapping them to web-safe status codes.
+
 EXCEPTION_MAPPINGS = {
     SessionNotFoundError: {
         "status_code": 404,

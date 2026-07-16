@@ -20,37 +20,36 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
     """
 
     async def dispatch(self, request: Request, call_next):
-        # 1. Safely extract the request trace ID
-        # Using getattr prevents AttributeError crashes if RequestIDMiddleware failed
+        
         request_id = getattr(request.state, "request_id", "unknown")
         
-        # 2. Extract safe HTTP metadata (no query params, no headers, no body)
+        
         method = request.method
         path = request.url.path
         
-        # 3. Start the high-resolution execution timer
+    
         start_time = time.perf_counter()
         
-        # Assume a 500 status code by default to ensure crashes are marked as errors
+        
         status_code = 500 
 
         try:
-            # 4. Hand execution down the HTTP call stack
+           
             response = await call_next(request)
             status_code = response.status_code
             return response
 
         except Exception:
-            # 5. Trap catastrophic failures just long enough to record the HTTP 500
+           
             status_code = 500
-            # We strictly RE-RAISE so api/middleware/exception_handler.py can do its job
+        
             raise
 
         finally:
-            # 6. Calculate total execution latency in milliseconds
+           
             latency_ms = (time.perf_counter() - start_time) * 1000
             
-            # 7. Format the standardized telemetry string
+            
             log_message = (
                 f"request_id={request_id} | "
                 f"method={method} | "
@@ -59,7 +58,7 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
                 f"latency_ms={latency_ms:.2f}"
             )
 
-            # 8. Route to the appropriate log severity
+           
             if status_code >= 500:
                 logger.error(log_message)
             else:

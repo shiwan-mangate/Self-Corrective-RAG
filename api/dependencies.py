@@ -54,7 +54,7 @@ def get_evaluation_pipeline(
     Retrieves the stateless EvaluationPipeline.
     Since it doesn't require a scoped DB transaction for read/write, we access the cached property directly.
     """
-    # Matches exactly to the @cached_property in your core/container.py
+    
     return container.evaluation_pipeline
 
 
@@ -78,7 +78,7 @@ def get_application_health() -> ApplicationHealth:
     Retrieves the Core Health Service.
     Does not require the global container since it binds directly to the singleton db_manager.
     """
-    # Matches your core/health.py ApplicationHealth(db_manager) signature perfectly
+   
     return ApplicationHealth(db_manager)
 
 

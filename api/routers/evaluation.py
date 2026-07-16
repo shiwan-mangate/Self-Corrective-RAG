@@ -39,18 +39,15 @@ def get_evaluation(
     triggering expensive LLM Judges or benchmarking routines unnecessarily.
     """
     logger.info(f"Evaluation Read requested | QueryID={query_id}")
-    
-    # 1. Fetch the latest execution run
+ 
     run = evaluation_repository.get_latest_by_query_id(query_id)
     
     if not run:
         logger.warning(f"Evaluation read failed: query_id '{query_id}' not found.")
-        # We raise a pure domain exception. exception_handler.py will catch this 
-        # and safely map it to a 404 Not Found HTTP JSON response.
+
         raise EvaluationNotFoundError(f"No evaluation result was found for query_id '{query_id}'.")
 
-    # 2. Map the Database Model to the strict Public API Schema
-    # (This perfectly matches your provided schemas/evaluation.py)
+
     return EvaluationResponse(
         grounding=GroundingResponse(
             is_grounded=run.is_grounded,
@@ -72,6 +69,6 @@ def get_evaluation(
             context_recall=run.context_recall,
             context_precision=run.context_precision
         ),
-        # Safely converts the internal String/None decision into a clean boolean
+       
         retry_recommended=run.retry_recommendation is not None
     )

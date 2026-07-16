@@ -39,8 +39,7 @@ def ingest_url(
     """
     logger.info(f"Received URL ingestion request: {request.source}")
     
-    # The pipeline is fully synchronous, so a standard `def` allows FastAPI 
-    # to safely execute this in its background thread pool.
+   
     result: IngestionResult = pipeline.ingest(request.source)
     
     return _map_to_response(result)

@@ -1,26 +1,19 @@
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
-# ==========================================
-# Core Infrastructure & Lifecycle
-# ==========================================
+
 from core.container import container
 from database.connection import db_manager
 from core.startup import ApplicationStartup
 from core.shutdown import ApplicationShutdown
 
-# ==========================================
-# Middleware & Exceptions
-# ==========================================
+
 from api.middleware.request_id import RequestIDMiddleware
 from api.middleware.logging import RequestLoggingMiddleware
 from api.middleware.exception_handler import register_exception_handlers
 
-# ==========================================
-# Routers
-# ==========================================
+
 from api.routers import health
 from api.routers import documents
 from api.routers import chat
@@ -42,15 +35,14 @@ async def lifespan(app: FastAPI):
     startup_coordinator = ApplicationStartup(container, db_manager)
     startup_coordinator.initialize()
     
-    # Bind the container to the FastAPI app state. 
-    # This allows api/dependencies.py to safely retrieve it via `request.app.state.container`
+    
     app.state.container = container
     
     logger.info("Application is ready to receive traffic.")
     
-    yield  # Yield control back to FastAPI to run the application
+    yield  
 
-    # 2. Shut Down
+   
     logger.info("Initiating Application Lifespan Shutdown...")
     shutdown_coordinator = ApplicationShutdown(db_manager)
     shutdown_coordinator.shutdown()
@@ -65,45 +57,17 @@ def create_app() -> FastAPI:
         title="Self-Healing RAG Platform",
         description="Enterprise-grade RAG system with autonomous hallucination detection and self-healing.",
         version="1.0.0",
-        lifespan=lifespan,
-        # Force Swagger UI to explicitly communicate with the live secure origin
-        servers=[
-            {
-                "url": "https://self-corrective-rag-ciwm.onrender.com",
-                "description": "Production Environment"
-            }
-        ]
+        lifespan=lifespan
     )
 
-    # ---------------------------------------------------------
-    # 0. Register CORS Middleware
-    # ---------------------------------------------------------
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
 
-    # ---------------------------------------------------------
-    # 1. Register Middleware (Order Matters)
-    # ---------------------------------------------------------
-    # Starlette executes middleware in reverse order of addition (LIFO).
-    # We want RequestID to wrap RequestLogging. 
-    # Therefore, we add RequestLogging first, then RequestID.
     app.add_middleware(RequestLoggingMiddleware)
     app.add_middleware(RequestIDMiddleware)
 
-    # ---------------------------------------------------------
-    # 2. Register Exception Handlers
-    # ---------------------------------------------------------
-    # Delegates all 404, 422, and 500 error mapping to the dedicated handler
+
     register_exception_handlers(app)
 
-    # ---------------------------------------------------------
-    # 3. Include Routers
-    # ---------------------------------------------------------
+
     app.include_router(health.router)
     app.include_router(documents.router)
     app.include_router(chat.router)
@@ -113,5 +77,4 @@ def create_app() -> FastAPI:
     return app
 
 
-# Create the global FastAPI application instance that Uvicorn will serve
 app = create_app()

@@ -7,7 +7,7 @@ class AITextGenerationService(ABC):
         self,
         system_prompt: str,
         user_prompt: str,
-        query_id: str,  # <-- ADDED
+        query_id: str, 
         temperature: float = 0.0,
         max_tokens: int = 512,
     ) -> str:

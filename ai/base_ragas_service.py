@@ -2,7 +2,7 @@ import numpy as np
 from typing import List, Any
 from abc import ABC
 
-# Import your existing services
+
 from ai.embedding_service import AIEmbeddingService
 from ai.base_judge_service import BaseAIJudgeService
 
@@ -16,7 +16,7 @@ class BaseRagasEmbeddings(ABC):
         self.service = embedding_service
 
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        # RAGAS needs native python lists, not numpy arrays
+      
         vectors: np.ndarray = self.service.embed_texts(texts)
         return vectors.tolist()
 

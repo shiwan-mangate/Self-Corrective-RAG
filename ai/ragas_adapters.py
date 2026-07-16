@@ -5,17 +5,17 @@ import numpy as np
 from typing import List, Optional, Any
 from unittest.mock import MagicMock
 
-# --- START BUGFIX FOR RAGAS ---
+
 sys.modules['langchain_community.chat_models.vertexai'] = MagicMock()
 sys.modules['langchain_community.llms.vertexai'] = MagicMock()
-# --- END BUGFIX ---
+
 
 from langchain_core.outputs import ChatResult
 from langchain_groq import ChatGroq
 
 from ai.base_ragas_service import BaseRagasLLM, BaseRagasEmbeddings
 from ai.embedding_service import AIEmbeddingService
-from config.settings import settings  # Clear, uniform config mapping
+from config.settings import settings  
 
 
 class NativeRagasEmbeddings(BaseRagasEmbeddings):
