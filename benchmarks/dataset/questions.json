@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "category": "FACTUAL",
+    "question": "In what year was the term retrieval-augmented generation first introduced in a paper?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 2,
+    "category": "FACTUAL",
+    "question": "What financial impact did the Google Bard error about the James Webb Space Telescope have on Google's stock value?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 3,
+    "category": "FACTUAL",
+    "question": "What is the name of the technique where additional relevant context is added to a user's input to guide the model's response?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 4,
+    "category": "FACTUAL",
+    "question": "What type of vectors encode the identity of a word and contain mostly zeros?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 5,
+    "category": "FACTUAL",
+    "question": "What does the abbreviation ICT stand for in the context of pre-training the retriever?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 6,
+    "category": "MULTI_HOP",
+    "question": "What is the Retro language model, and what is the name of its more reproducible version?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 7,
+    "category": "MULTI_HOP",
+    "question": "Explain the difference between sparse and dense vectors, and what search approach combines both of them?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 8,
+    "category": "MULTI_HOP",
+    "question": "According to the text, what are the three types of chunking strategies, and which one is recommended for HTML files?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 9,
+    "category": "MULTI_HOP",
+    "question": "How did a misinterpretation of a rhetorical chapter title in the book 'Faith in the New Millennium' demonstrate a limitation of RAG?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 10,
+    "category": "MULTI_HOP",
+    "question": "How do approximate nearest neighbor (ANN) searches compare to K-nearest neighbors (KNN) searches, and how do dot products affect this process?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 11,
+    "category": "AMBIGUOUS",
+    "question": "When was it first proposed?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 12,
+    "category": "AMBIGUOUS",
+    "question": "How do you chunk code files?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 13,
+    "category": "AMBIGUOUS",
+    "question": "What is prompt stuffing?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 14,
+    "category": "AMBIGUOUS",
+    "question": "Tell me about the Retro one.",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 15,
+    "category": "AMBIGUOUS",
+    "question": "What is the issue with poisoning?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 16,
+    "category": "OUT_OF_DOMAIN",
+    "question": "What are the main new features released in Python 3.12?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 17,
+    "category": "OUT_OF_DOMAIN",
+    "question": "Who won the FIFA Men's World Cup in 2022?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 18,
+    "category": "OUT_OF_DOMAIN",
+    "question": "What is the formula for calculating the area of a circle?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 19,
+    "category": "OUT_OF_DOMAIN",
+    "question": "How do you resolve a Git merge conflict?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 20,
+    "category": "OUT_OF_DOMAIN",
+    "question": "What are the best tourist attractions in Paris?",
+    "conversation_id": null,
+    "depends_on": null
+  },
+  {
+    "id": 21,
+    "category": "FOLLOW_UP",
+    "question": "What are dense vectors?",
+    "conversation_id": "conv_rag_bench_1",
+    "depends_on": null
+  },
+  {
+    "id": 22,
+    "category": "FOLLOW_UP",
+    "question": "How do they differ from sparse ones?",
+    "conversation_id": "conv_rag_bench_1",
+    "depends_on": 21
+  },
+  {
+    "id": 23,
+    "category": "FOLLOW_UP",
+    "question": "Which search approach combines both of them?",
+    "conversation_id": "conv_rag_bench_1",
+    "depends_on": 22
+  },
+  {
+    "id": 24,
+    "category": "FOLLOW_UP",
+    "question": "Why is that combined approach computationally efficient?",
+    "conversation_id": "conv_rag_bench_1",
+    "depends_on": 23
+  },
+  {
+    "id": 25,
+    "category": "FOLLOW_UP",
+    "question": "Can you summarize all three vector concepts we just discussed?",
+    "conversation_id": "conv_rag_bench_1",
+    "depends_on": 24
+  }
+]

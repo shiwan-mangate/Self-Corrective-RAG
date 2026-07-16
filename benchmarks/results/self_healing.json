@@ -1,0 +1,523 @@
+[
+    {
+        "id": 1,
+        "category": "FACTUAL",
+        "question": "In what year was the term retrieval-augmented generation first introduced in a paper?",
+        "generated_answer": "The term retrieval-augmented generation (RAG) was first introduced in a 2020 paper that described combining a parametric language model with a non-parametric external memory accessed through retrieval at inference time [3].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\nRetrieval-augmented generation - Wikipedia\n\nJump to content\n\nFrom Wikipedia, the free encyclopedia\n\nType of information retrieval using LLMs\n\nRetrieval-augmented generation\n (\nRAG\n) is a technique that enables \nlarge language models\n (LLMs) to retrieve and incorporate new information from external data sources.\n[\n1\n]\n With RAG, LLMs first refer to a specified set of documents, then respond to user queries. These documents supplement information from the LLM's pre-existing \ntraining data\n.\n[\n2\n]\n This allows LLMs to use domain-specific and/or updated information that is not available in the training data.\n[\n2\n]\n For example, this enables LLM-based \nchatbots\n to access internal company data or generate responses based on authoritative sources. The technique was first proposed in 2020 and has since become a widely adopted approach in modern AI systems.\n\nRAG improves LLMs by incorporating \ninformation retrieval\n before generating responses.\n[\n3\n]\n Unlike LLMs that rely on static training data, RAG pulls relevant text from databases, uploaded documents, or web sources.\n[\n1\n]\n According to \nArs Technica\n, \"RAG is a way of improving LLM performance, in essence by blending the LLM process with a web search or other document look-up process to help LLMs stick to the facts.\" This method helps reduce \nAI hallucinations\n,\n[\n3\n]\n which have caused chatbots to describe policies that don't exist, or recommend nonexistent legal cases to lawyers that are looking for citations to support their arguments.\n[\n4\n]\n\nRAG also reduces the need to retrain LLMs with new data, saving on computational and financial costs.\n[\n1\n]\n Beyond efficiency gains, RAG also allows LLMs to include sources in their responses, so users can verify the cited sources. This provides greater transparency, as users can cross-check retrieved content to ensure accuracy and relevance.\n\nThe term retrieval-augmented generation (RAG) was introduced in a 2020 paper that described combining a parametric language model with a non-parametric external memory accessed through retrieval at inference time.\n[\n3\n]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\nSocial and economic | AI boomAI bubbleAI data centerAI effectAI infrastructureAI literacyAI slopAI winterAnthropomorphismArms raceCompetitionEnvironmental impactExplainable AIGenerative engine optimizationIn architectureIn educationIn fictionIn healthcareChatbot psychosisIn marketingIn video gamesIn visual artMilitary applicationsAI warfareWorkplace impact\nCategory\n\nRetrieved from \"\nhttps://en.wikipedia.org/w/index.php?title=Retrieval-augmented_generation&oldid=1363937430\n\"\n\nCategories\n:\n\n- Large language models\n\n- Natural language processing\n\n- Information retrieval systems\n\n- Generative AI\n\nHidden categories:\n\n- Articles with short description\n\n- Short description is different from Wikidata\n\n- Articles containing potentially dated statements from 2023\n\n- All articles containing potentially dated statements\n\n- All articles with unsourced statements\n\n- Articles with unsourced statements from June 2026\n\n- Articles with unsourced statements from August 2025\n\nSearch\n\nRetrieval-augmented generation\n\n21 languages\n\nAdd topic\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Process]\n\nRetrieval-augmented generation (RAG) enhances \nlarge language models\n (LLMs) by incorporating an \ninformation-retrieval\n mechanism that allows models to access and utilize additional data beyond their original training set. \nArs Technica\n notes that \"when new information becomes available, rather than having to retrain the model, all that's needed is to augment the model's external knowledge base with the updated information\" (\"augmentation\").\n[\n4\n]\n IBM states that \"in the generative phase, the LLM draws from the augmented prompt and its internal representation of its training data to synthesize\" an answer.\n[\n1\n]\n\nRAG key stages\n\n[\nedit\n]\n\nOverview of RAG process, combining external documents and user input into an LLM prompt to get tailored output\n\nTypically, the data to be referenced is converted into LLM \nembeddings\n, numerical representations in the form of a large vector space. RAG can be used on unstructured (usually text), semi-structured, or structured data (for example \nknowledge graphs\n). These embeddings are then stored in a \nvector database\n to allow for \ndocument retrieval\n.\n\nGiven a user query, a document retriever is first called to select the most relevant documents that will be used to augment the query.\n[\n2\n]\n[\n3\n]\n This comparison can be done using a variety of methods, which depend in part on the type of indexing used.\n[\n1\n]\n\nThe model feeds this relevant retrieved information into the LLM via \nprompt engineering\n of the user's original query. Newer implementations (\nas of 2023\n[\nupdate\n]\n) can also incorporate specific augmentation modules with abilities such as expanding queries into multiple domains and using memory and self-improvement to learn from previous retrievals.\n[\ncitation needed\n]\n\nFinally, the LLM can generate output based on both the query and the retrieved documents.\n[\n2\n]\n[\n3\n]\n Some models incorporate extra steps to improve output, such as the re-ranking of retrieved information, context selection, and \nfine-tuning\n.\n",
+        "latency_sec": 29.45,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.8772352857702495,
+            "context_precision": 0.9999999999666667,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 2,
+        "category": "FACTUAL",
+        "question": "What financial impact did the Google Bard error about the James Webb Space Telescope have on Google's stock value?",
+        "generated_answer": "The Google Bard error about the James Webb Space Telescope contributed to a $100 billion decline in Google's stock value .",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\nThe term retrieval-augmented generation (RAG) was introduced in a 2020 paper that described combining a parametric language model with a non-parametric external memory accessed through retrieval at inference time.\n[\n3\n]\n\nRAG and LLM limitations\n\n[\nedit\n]\n\nLLMs can provide incorrect information. For example, when Google first demonstrated its LLM tool \"\nGoogle Bard\n\" (later re-branded to Gemini), the LLM provided incorrect information about the \nJames Webb Space Telescope\n. This error contributed to a $100 billion decline in \nGoogle's\n stock value.\n[\n4\n]\n RAG is used to prevent these errors, but it does not solve all the problems. For example, LLMs can generate misinformation even when pulling from factually correct sources if they misinterpret the context. \nMIT Technology Review\n gives the example of an AI-generated response stating, \"The United States has had one Muslim president, Barack Hussein Obama.\" The model retrieved this from the rhetorical chapter title \"Barack Hussein Obama: America's First Muslim President?\" in the book \nFaith in the New Millennium: The Future of Religion and American Politics\n.\n[\n5\n]\n The LLM did not \"know\" or \"understand\" the context of the title, generating a false statement.\n[\n2\n]\n\nLLMs with RAG are programmed to prioritize new information. This technique has been called \"prompt stuffing.\" Without prompt stuffing, the LLM's input is generated by a user; with prompt stuffing, additional relevant context is added to this input to guide the model's response. This approach provides the LLM with key information early in the prompt, encouraging it to prioritize the supplied data over pre-existing training knowledge.\n[\n6\n]\n",
+        "latency_sec": 22.55,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.8482732658095384,
+            "context_precision": 0.9999999999,
+            "context_recall": 0.5,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 3,
+        "category": "FACTUAL",
+        "question": "What is the name of the technique where additional relevant context is added to a user's input to guide the model's response?",
+        "generated_answer": "This technique is called \"prompt stuffing.\" It involves adding additional relevant context to a user's input to guide the model's response, encouraging it to prioritize the supplied data over pre-existing training knowledge .",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[RAG and LLM limitations]\n\nLLMs with RAG are programmed to prioritize new information. This technique has been called \"prompt stuffing.\" Without prompt stuffing, the LLM's input is generated by a user; with prompt stuffing, additional relevant context is added to this input to guide the model's response. This approach provides the LLM with key information early in the prompt, encouraging it to prioritize the supplied data over pre-existing training knowledge.\n[\n6\n]\n\nProcess\n\n[\nedit\n]\n\nRetrieval-augmented generation (RAG) enhances \nlarge language models\n (LLMs) by incorporating an \ninformation-retrieval\n mechanism that allows models to access and utilize additional data beyond their original training set. \nArs Technica\n notes that \"when new information becomes available, rather than having to retrain the model, all that's needed is to augment the model's external knowledge base with the updated information\" (\"augmentation\").\n[\n4\n]\n IBM states that \"in the generative phase, the LLM draws from the augmented prompt and its internal representation of its training data to synthesize\" an answer.\n[\n1\n]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Process]\n\nFinally, the LLM can generate output based on both the query and the retrieved documents.\n[\n2\n]\n[\n3\n]\n Some models incorporate extra steps to improve output, such as the re-ranking of retrieved information, context selection, and \nfine-tuning\n.\n\nApplications\n\n[\nedit\n]\n\nRetrieval-augmented generation is used in applications where generated responses need to be grounded in external or frequently updated information.\n[\ncitation needed\n]\n\nIn healthcare, RAG has been studied as a way to ground large language model outputs in external medical knowledge sources, although reviews have noted continuing challenges around evaluation, ethics, and clinical reliability.\n[\n7\n]\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\nThe term retrieval-augmented generation (RAG) was introduced in a 2020 paper that described combining a parametric language model with a non-parametric external memory accessed through retrieval at inference time.\n[\n3\n]\n\nRAG and LLM limitations\n\n[\nedit\n]\n\nLLMs can provide incorrect information. For example, when Google first demonstrated its LLM tool \"\nGoogle Bard\n\" (later re-branded to Gemini), the LLM provided incorrect information about the \nJames Webb Space Telescope\n. This error contributed to a $100 billion decline in \nGoogle's\n stock value.\n[\n4\n]\n RAG is used to prevent these errors, but it does not solve all the problems. For example, LLMs can generate misinformation even when pulling from factually correct sources if they misinterpret the context. \nMIT Technology Review\n gives the example of an AI-generated response stating, \"The United States has had one Muslim president, Barack Hussein Obama.\" The model retrieved this from the rhetorical chapter title \"Barack Hussein Obama: America's First Muslim President?\" in the book \nFaith in the New Millennium: The Future of Religion and American Politics\n.\n[\n5\n]\n The LLM did not \"know\" or \"understand\" the context of the title, generating a false statement.\n[\n2\n]\n\nLLMs with RAG are programmed to prioritize new information. This technique has been called \"prompt stuffing.\" Without prompt stuffing, the LLM's input is generated by a user; with prompt stuffing, additional relevant context is added to this input to guide the model's response. This approach provides the LLM with key information early in the prompt, encouraging it to prioritize the supplied data over pre-existing training knowledge.\n[\n6\n]\n",
+        "latency_sec": 15.19,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.8,
+            "answer_relevancy": 0.6587008418867808,
+            "context_precision": 0.9999999999666667,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 4,
+        "category": "FACTUAL",
+        "question": "What type of vectors encode the identity of a word and contain mostly zeros?",
+        "generated_answer": "Sparse vectors, which encode the identity of a word, are typically dictionary-length and contain mostly zeros [1].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Applications]\n\nIn healthcare, RAG has been studied as a way to ground large language model outputs in external medical knowledge sources, although reviews have noted continuing challenges around evaluation, ethics, and clinical reliability.\n[\n7\n]\n\nImprovements\n\n[\nedit\n]\n\nImprovements to the basic process above can be applied at different stages in the RAG flow.\n\nEncoder\n\n[\nedit\n]\n\nThese methods focus on the encoding of text as either dense or sparse vectors. \nSparse vectors\n, which encode the identity of a word, are typically \ndictionary\n-length and contain mostly zeros. \nDense vectors\n, which encode meaning, are more compact and contain fewer zeros. Various enhancements can improve the way similarities are calculated in the vector stores (databases).\n[\n8\n]\n\n- Performance improves by optimizing how vector similarities are calculated.Dot productsenhance similarity scoring, whileapproximate nearest neighbor(ANN) searches improve retrieval efficiency overK-nearest neighbors(KNN) searches.[9]\n\n- Accuracy may be improved with Late Interactions, which allow the system to compare words more precisely after retrieval. This helps refine document ranking and improve search relevance.[10]\n\n- Hybrid vector approaches may be used to combine dense vector representations with sparseone-hotvectors, taking advantage of the computational efficiency of sparse dot products over dense vector operations.[8]\n\n- Other retrieval techniques focus on improving accuracy by refining how documents are selected. Some retrieval methods combine sparse representations, such as SPLADE, with query expansion strategies to improve search accuracy and recall.[11]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n13. \u2191Shi, Weijia; Min, Sewon; Yasunaga, Michihiro; Seo, Minjoon; James, Rich; Lewis, Mike; Zettlemoyer, Luke; Yih, Wen-tau (June 2024).\"REPLUG: Retrieval-Augmented Black-Box Language Models\".Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers). pp.8371-8384.arXiv:2301.12652.doi:10.18653/v1/2024.naacl-long.463. Retrieved16 March2025.\n\n14. \u2191Ram, Ori; Levine, Yoav; Dalmedigos, Itay; Muhlgay, Dor; Shashua, Amnon; Leyton-Brown, Kevin; Shoham, Yoav (2023).\"In-Context Retrieval-Augmented Language Models\".Transactions of the Association for Computational Linguistics.11:1316-1331.arXiv:2302.00083.doi:10.1162/tacl_a_00605. Retrieved16 March2025.\n\n15. \u2191Borgeaud, Sebastian; Mensch, Arthur (2021).\"Improving language models by retrieving from trillions of tokens\"(PDF).\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n",
+        "latency_sec": 63.28,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.7134850105695614,
+            "context_precision": 0.9999999999,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 5,
+        "category": "FACTUAL",
+        "question": "What does the abbreviation ICT stand for in the context of pre-training the retriever?",
+        "generated_answer": "The ICT abbreviation meaning in the context of pre-training retriever is not explicitly mentioned in the provided Evidence. However, it is worth noting that the term \"Retro\" is mentioned in Evidence 1, which refers to a method for pre-training retrievers .",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\n- Reranking techniques can refine retriever performance by prioritizing the most relevant retrieved documents during training.[14]\n\nLanguage model\n\n[\nedit\n]\n\nRetro language model for RAG. Each Retro block consists of Attention, Chunked Cross Attention, and Feed Forward layers. Black-lettered boxes show data being changed, and blue lettering shows the algorithm performing the changes.\n\nBy redesigning the language model with the retriever in mind, a 25-time smaller network can get comparable perplexity as its much larger counterparts.\n[\n15\n]\n Because it is trained from scratch, this method (Retro) incurs the high cost of training runs that the original RAG scheme avoided. The hypothesis is that by giving domain knowledge during training, Retro needs less focus on the domain and can devote its smaller weight resources only to language semantics. The redesigned language model is shown here.\n\nIt has been reported that Retro is not reproducible,\n so modifications were made to make it so. The more reproducible version is called Retro++ and includes in-context RAG.\n[\n16\n]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n6. \u2191\"Mitigating LLM hallucinations in text summarisation\".BBC. 20 June 2024. Retrieved7 March2025.\n\n7. \u2191Amugongo, Lameck Mbangula; Mascheroni, Pietro; Brooks, Steven; Doering, Stefan; Seidel, Jan (2025-06-11).\"Retrieval augmented generation for large language models in healthcare: A systematic review\".PLOS Digital Health.4(6) e0000877.doi:10.1371/journal.pdig.0000877.PMC12157099.\n\n8. 12Luan, Yi; Eisenstein, Jacob; Toutanova, Kristina; Collins, Michael (26 April 2021).\"Sparse, Dense, and Attentional Representations for Text Retrieval\".Transactions of the Association for Computational Linguistics.9:329-345.arXiv:2005.00181.doi:10.1162/tacl_a_00369. Retrieved15 March2025.\n\n9. \u2191\"Information retrieval\".Microsoft. 10 January 2025. Retrieved15 March2025.\n\n10. \u2191Khattab, Omar; Zaharia, Matei (2020).\"ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT\".Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. pp.39-48.doi:10.1145/3397271.3401075.ISBN978-1-4503-8016-4.\n\n11. \u2191Wang, Yup; Conroy, John M.; Molino, Neil; Yang, Julia; Green, Mike (2024).\"Laboratory for Analytic Sciences in TREC 2024 Retrieval Augmented Generation Track\".NIST TREC 2024. Retrieved15 March2025.\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n",
+        "latency_sec": 96.19,
+        "recovery_used": true,
+        "correction_path": [
+            "rewrite_query",
+            "retry_retrieval"
+        ],
+        "retry_count": 1,
+        "recovery_success": true,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.9999999999666667,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 6,
+        "category": "MULTI_HOP",
+        "question": "What is the Retro language model, and what is the name of its more reproducible version?",
+        "generated_answer": "The reproducible version of the Retro language model is called Retro++.",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\n- Reranking techniques can refine retriever performance by prioritizing the most relevant retrieved documents during training.[14]\n\nLanguage model\n\n[\nedit\n]\n\nRetro language model for RAG. Each Retro block consists of Attention, Chunked Cross Attention, and Feed Forward layers. Black-lettered boxes show data being changed, and blue lettering shows the algorithm performing the changes.\n\nBy redesigning the language model with the retriever in mind, a 25-time smaller network can get comparable perplexity as its much larger counterparts.\n[\n15\n]\n Because it is trained from scratch, this method (Retro) incurs the high cost of training runs that the original RAG scheme avoided. The hypothesis is that by giving domain knowledge during training, Retro needs less focus on the domain and can devote its smaller weight resources only to language semantics. The redesigned language model is shown here.\n\nIt has been reported that Retro is not reproducible,\n so modifications were made to make it so. The more reproducible version is called Retro++ and includes in-context RAG.\n[\n16\n]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\nIt has been reported that Retro is not reproducible,\n so modifications were made to make it so. The more reproducible version is called Retro++ and includes in-context RAG.\n[\n16\n]\n\nChunking\n\n[\nedit\n]\n\nSee also: \nChunking (computing)\n\nChunking involves various strategies for breaking up the data into vectors so the retriever can find details in it.\n\nDifferent data styles have patterns that correct chunking can take advantage of.\n\nThree types of chunking strategies are:\n[\ncitation needed\n]\n\n- Fixed length with overlap. This is fast and easy. Overlapping consecutive chunks helps to maintain semantic context across chunks.\n\n- Syntax-based chunks can break the document up into sentences. Libraries such asspaCyorNLTKcan also help.\n\n- File format-based chunking. Certain file types have natural chunks built in, and it's best to respect them. For example, code files are best chunked and vectorized as whole functions or classes. HTML files should leave<table> or base64 encoded <img>elements intact. Similar considerations should be taken for pdf files. Libraries such as Unstructured orLangChaincan assist with this method.\n",
+        "latency_sec": 27.58,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.75,
+            "answer_relevancy": 0.9786627459325089,
+            "context_precision": 0.99999999995,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 7,
+        "category": "MULTI_HOP",
+        "question": "Explain the difference between sparse and dense vectors, and what search approach combines both of them?",
+        "generated_answer": "Sparse vectors, which encode the identity of a word, are typically dictionary-length and contain mostly zeros . On the other hand, dense vectors, which encode meaning, are more compact and contain fewer zeros. \n\nA search approach that combines both sparse and dense vector representations is the hybrid vector approach. This method takes advantage of the computational efficiency of sparse dot products over dense vector operations . By combining dense vector representations with sparse one-hot vectors, hybrid vector approaches can improve the way similarities are calculated in the vector stores, leading to enhanced search efficiency and accuracy.",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Applications]\n\nIn healthcare, RAG has been studied as a way to ground large language model outputs in external medical knowledge sources, although reviews have noted continuing challenges around evaluation, ethics, and clinical reliability.\n[\n7\n]\n\nImprovements\n\n[\nedit\n]\n\nImprovements to the basic process above can be applied at different stages in the RAG flow.\n\nEncoder\n\n[\nedit\n]\n\nThese methods focus on the encoding of text as either dense or sparse vectors. \nSparse vectors\n, which encode the identity of a word, are typically \ndictionary\n-length and contain mostly zeros. \nDense vectors\n, which encode meaning, are more compact and contain fewer zeros. Various enhancements can improve the way similarities are calculated in the vector stores (databases).\n[\n8\n]\n\n- Performance improves by optimizing how vector similarities are calculated.Dot productsenhance similarity scoring, whileapproximate nearest neighbor(ANN) searches improve retrieval efficiency overK-nearest neighbors(KNN) searches.[9]\n\n- Accuracy may be improved with Late Interactions, which allow the system to compare words more precisely after retrieval. This helps refine document ranking and improve search relevance.[10]\n\n- Hybrid vector approaches may be used to combine dense vector representations with sparseone-hotvectors, taking advantage of the computational efficiency of sparse dot products over dense vector operations.[8]\n\n- Other retrieval techniques focus on improving accuracy by refining how documents are selected. Some retrieval methods combine sparse representations, such as SPLADE, with query expansion strategies to improve search accuracy and recall.[11]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n6. \u2191\"Mitigating LLM hallucinations in text summarisation\".BBC. 20 June 2024. Retrieved7 March2025.\n\n7. \u2191Amugongo, Lameck Mbangula; Mascheroni, Pietro; Brooks, Steven; Doering, Stefan; Seidel, Jan (2025-06-11).\"Retrieval augmented generation for large language models in healthcare: A systematic review\".PLOS Digital Health.4(6) e0000877.doi:10.1371/journal.pdig.0000877.PMC12157099.\n\n8. 12Luan, Yi; Eisenstein, Jacob; Toutanova, Kristina; Collins, Michael (26 April 2021).\"Sparse, Dense, and Attentional Representations for Text Retrieval\".Transactions of the Association for Computational Linguistics.9:329-345.arXiv:2005.00181.doi:10.1162/tacl_a_00369. Retrieved15 March2025.\n\n9. \u2191\"Information retrieval\".Microsoft. 10 January 2025. Retrieved15 March2025.\n\n10. \u2191Khattab, Omar; Zaharia, Matei (2020).\"ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT\".Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. pp.39-48.doi:10.1145/3397271.3401075.ISBN978-1-4503-8016-4.\n\n11. \u2191Wang, Yup; Conroy, John M.; Molino, Neil; Yang, Julia; Green, Mike (2024).\"Laboratory for Analytic Sciences in TREC 2024 Retrieval Augmented Generation Track\".NIST TREC 2024. Retrieved15 March2025.\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n\n--- Evidence 4 ---\nRank: 4 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\n- Other retrieval techniques focus on improving accuracy by refining how documents are selected. Some retrieval methods combine sparse representations, such as SPLADE, with query expansion strategies to improve search accuracy and recall.[11]\n\nRetriever-centric methods\n\n[\nedit\n]\n\nThese methods aim to enhance the quality of document retrieval in vector databases:\n\n- Pre-training the retriever using theInverse Cloze Task(ICT), a technique that helps the model learn retrieval patterns by predicting masked text within documents.[12]\n\n- Supervised retriever optimization aligns retrieval probabilities with the generator model's likelihood distribution. This involves retrieving the top-k vectors for a given prompt, scoring the generated response'sperplexity, and minimizingKL divergencebetween the retriever's selections and the model's likelihoods to refine retrieval.[13]\n\n- Reranking techniques can refine retriever performance by prioritizing the most relevant retrieved documents during training.[14]\n",
+        "latency_sec": 94.91,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.9314679982782126,
+            "context_precision": 0.7499999999625,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 8,
+        "category": "MULTI_HOP",
+        "question": "According to the text, what are the three types of chunking strategies, and which one is recommended for HTML files?",
+        "generated_answer": "There are three types of chunking strategies: Fixed length with overlap, Syntax-based chunks, and File format-based chunking. \n\nFixed length with overlap is fast and easy, and overlapping consecutive chunks helps to maintain semantic context across chunks. \n\nSyntax-based chunks can break the document up into sentences, and libraries such as spaCy or NLTK can assist with this method. \n\nFile format-based chunking is recommended for certain file types, which have natural chunks built in, and it's best to respect them. For example, code files are best chunked and vectorized as whole functions or classes. HTML files should leave <table> or base64 encoded <img> elements intact.",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\nIt has been reported that Retro is not reproducible,\n so modifications were made to make it so. The more reproducible version is called Retro++ and includes in-context RAG.\n[\n16\n]\n\nChunking\n\n[\nedit\n]\n\nSee also: \nChunking (computing)\n\nChunking involves various strategies for breaking up the data into vectors so the retriever can find details in it.\n\nDifferent data styles have patterns that correct chunking can take advantage of.\n\nThree types of chunking strategies are:\n[\ncitation needed\n]\n\n- Fixed length with overlap. This is fast and easy. Overlapping consecutive chunks helps to maintain semantic context across chunks.\n\n- Syntax-based chunks can break the document up into sentences. Libraries such asspaCyorNLTKcan also help.\n\n- File format-based chunking. Certain file types have natural chunks built in, and it's best to respect them. For example, code files are best chunked and vectorized as whole functions or classes. HTML files should leave<table> or base64 encoded <img>elements intact. Similar considerations should be taken for pdf files. Libraries such as Unstructured orLangChaincan assist with this method.\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\n- File format-based chunking. Certain file types have natural chunks built in, and it's best to respect them. For example, code files are best chunked and vectorized as whole functions or classes. HTML files should leave<table> or base64 encoded <img>elements intact. Similar considerations should be taken for pdf files. Libraries such as Unstructured orLangChaincan assist with this method.\n\nHybrid search\n\n[\nedit\n]\n\nSometimes vector database searches (\naka\n \nsemantic search\n technique) can miss key facts needed to answer a user's question. One way to mitigate this is to do a traditional text search (\naka\n \nfull text search\n), combine those results to the text chunks linked to the retrieved vectors from the vector search, and feed the combined hybrid text (using effective scoring or reranking scoring) into the language model for generation.\n[\n17\n]\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n",
+        "latency_sec": 111.72,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.8872227451550267,
+            "context_precision": 0.99999999995,
+            "context_recall": 0.6666666666666666,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 9,
+        "category": "MULTI_HOP",
+        "question": "How did a misinterpretation of a rhetorical chapter title in the book 'Faith in the New Millennium' demonstrate a limitation of RAG?",
+        "generated_answer": "A misinterpretation of a rhetorical chapter title in the book 'Faith in the New Millennium' demonstrated a limitation of RAG when an AI-generated response stated, \"The United States has had one Muslim president, Barack Hussein Obama.\" The model retrieved this from the rhetorical chapter title \"Barack Hussein Obama: America's First Muslim President?\" in the book 'Faith in the New Millennium: The Future of Religion and American Politics' . The LLM did not \"know\" or \"understand\" the context of the title, generating a false statement [2].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\nThe term retrieval-augmented generation (RAG) was introduced in a 2020 paper that described combining a parametric language model with a non-parametric external memory accessed through retrieval at inference time.\n[\n3\n]\n\nRAG and LLM limitations\n\n[\nedit\n]\n\nLLMs can provide incorrect information. For example, when Google first demonstrated its LLM tool \"\nGoogle Bard\n\" (later re-branded to Gemini), the LLM provided incorrect information about the \nJames Webb Space Telescope\n. This error contributed to a $100 billion decline in \nGoogle's\n stock value.\n[\n4\n]\n RAG is used to prevent these errors, but it does not solve all the problems. For example, LLMs can generate misinformation even when pulling from factually correct sources if they misinterpret the context. \nMIT Technology Review\n gives the example of an AI-generated response stating, \"The United States has had one Muslim president, Barack Hussein Obama.\" The model retrieved this from the rhetorical chapter title \"Barack Hussein Obama: America's First Muslim President?\" in the book \nFaith in the New Millennium: The Future of Religion and American Politics\n.\n[\n5\n]\n The LLM did not \"know\" or \"understand\" the context of the title, generating a false statement.\n[\n2\n]\n\nLLMs with RAG are programmed to prioritize new information. This technique has been called \"prompt stuffing.\" Without prompt stuffing, the LLM's input is generated by a user; with prompt stuffing, additional relevant context is added to this input to guide the model's response. This approach provides the LLM with key information early in the prompt, encouraging it to prioritize the supplied data over pre-existing training knowledge.\n[\n6\n]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Challenges]\n\nRAG systems may retrieve factually correct but misleading sources, leading to errors in interpretation. In some cases, an LLM may extract statements from a source without considering its context, resulting in an incorrect conclusion. Additionally, when faced with conflicting information, RAG models may struggle to determine which source is accurate. The worst case outcome of this limitation is that the model may combine details from multiple sources producing responses that merge outdated and updated information in a misleading manner. According to the \nMIT Technology Review\n, these issues occur because RAG systems may misinterpret the data they retrieve.\n[\n2\n]\n\nReferences\n\n[\nedit\n]\n\n1. 123456\"What is retrieval-augmented generation?\".IBM. 22 August 2023. Retrieved7 March2025.\n\n2. 123456\"Why Google's AI Overviews gets things wrong\".MIT Technology Review. 31 May 2024. Retrieved7 March2025.\n\n3. 12345Lewis, Patrick; Perez, Ethan; Piktus, Aleksandra; Petroni, Fabio; Karpukhin, Vladimir; Goyal, Naman; K\u00fcttler, Heinrich; Lewis, Mike; Yih, Wen-tau; Rockt\u00e4schel, Tim; Riedel, Sebastian; Kiela, Douwe (2020).\"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\".Advances in Neural Information Processing Systems.33. Curran Associates, Inc.:9459-9474.arXiv:2005.11401.\n\n4. 1234\"Can a technology called RAG keep AI models from making stuff up?\".Ars Technica. 6 June 2024. Retrieved7 March2025.\n\n5. \u2191Goetz, Rebecca Anne (2015). \"Barack Hussein Obama: America's First Muslim President?\". In Sutton, Matthew Avery; Dochuk, Darren (eds.).Faith in the New Millennium: The Future of Religion and American Politics. Oxford University Press.doi:10.1093/acprof:oso/9780199372690.003.0006.ISBN9780199372737.\n\n6. \u2191\"Mitigating LLM hallucinations in text summarisation\".BBC. 20 June 2024. Retrieved7 March2025.\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Challenges]\n\nWhile RAG improves the accuracy of large language models (LLMs), it does not eliminate all challenges. One limitation is that while RAG reduces the need for frequent model retraining, it does not remove it entirely. Additionally, LLMs may struggle to recognize when they lack sufficient information to provide a reliable response. Without specific training, models may generate answers even when they should indicate uncertainty. According to \nIBM\n, this issue can arise when the model lacks the ability to assess its own knowledge limitations.\n[\n1\n]\n\nRAG poisoning\n\n[\nedit\n]\n\nRAG systems may retrieve factually correct but misleading sources, leading to errors in interpretation. In some cases, an LLM may extract statements from a source without considering its context, resulting in an incorrect conclusion. Additionally, when faced with conflicting information, RAG models may struggle to determine which source is accurate. The worst case outcome of this limitation is that the model may combine details from multiple sources producing responses that merge outdated and updated information in a misleading manner. According to the \nMIT Technology Review\n, these issues occur because RAG systems may misinterpret the data they retrieve.\n[\n2\n]\n",
+        "latency_sec": 114.07,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.9880722086402453,
+            "context_precision": 0.9999999999666667,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 10,
+        "category": "MULTI_HOP",
+        "question": "How do approximate nearest neighbor (ANN) searches compare to K-nearest neighbors (KNN) searches, and how do dot products affect this process?",
+        "generated_answer": "Approximate nearest neighbor (ANN) searches improve retrieval efficiency over K-nearest neighbors (KNN) searches [3]. This is because ANN searches are optimized for faster similarity calculations, whereas KNN searches rely on more computationally expensive operations [3]. Dot products enhance similarity scoring, which can further improve the efficiency of ANN searches [3].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n13. \u2191Shi, Weijia; Min, Sewon; Yasunaga, Michihiro; Seo, Minjoon; James, Rich; Lewis, Mike; Zettlemoyer, Luke; Yih, Wen-tau (June 2024).\"REPLUG: Retrieval-Augmented Black-Box Language Models\".Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers). pp.8371-8384.arXiv:2301.12652.doi:10.18653/v1/2024.naacl-long.463. Retrieved16 March2025.\n\n14. \u2191Ram, Ori; Levine, Yoav; Dalmedigos, Itay; Muhlgay, Dor; Shashua, Amnon; Leyton-Brown, Kevin; Shoham, Yoav (2023).\"In-Context Retrieval-Augmented Language Models\".Transactions of the Association for Computational Linguistics.11:1316-1331.arXiv:2302.00083.doi:10.1162/tacl_a_00605. Retrieved16 March2025.\n\n15. \u2191Borgeaud, Sebastian; Mensch, Arthur (2021).\"Improving language models by retrieving from trillions of tokens\"(PDF).\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Applications]\n\nIn healthcare, RAG has been studied as a way to ground large language model outputs in external medical knowledge sources, although reviews have noted continuing challenges around evaluation, ethics, and clinical reliability.\n[\n7\n]\n\nImprovements\n\n[\nedit\n]\n\nImprovements to the basic process above can be applied at different stages in the RAG flow.\n\nEncoder\n\n[\nedit\n]\n\nThese methods focus on the encoding of text as either dense or sparse vectors. \nSparse vectors\n, which encode the identity of a word, are typically \ndictionary\n-length and contain mostly zeros. \nDense vectors\n, which encode meaning, are more compact and contain fewer zeros. Various enhancements can improve the way similarities are calculated in the vector stores (databases).\n[\n8\n]\n\n- Performance improves by optimizing how vector similarities are calculated.Dot productsenhance similarity scoring, whileapproximate nearest neighbor(ANN) searches improve retrieval efficiency overK-nearest neighbors(KNN) searches.[9]\n\n- Accuracy may be improved with Late Interactions, which allow the system to compare words more precisely after retrieval. This helps refine document ranking and improve search relevance.[10]\n\n- Hybrid vector approaches may be used to combine dense vector representations with sparseone-hotvectors, taking advantage of the computational efficiency of sparse dot products over dense vector operations.[8]\n\n- Other retrieval techniques focus on improving accuracy by refining how documents are selected. Some retrieval methods combine sparse representations, such as SPLADE, with query expansion strategies to improve search accuracy and recall.[11]\n\n\n--- Evidence 4 ---\nRank: 4 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n6. \u2191\"Mitigating LLM hallucinations in text summarisation\".BBC. 20 June 2024. Retrieved7 March2025.\n\n7. \u2191Amugongo, Lameck Mbangula; Mascheroni, Pietro; Brooks, Steven; Doering, Stefan; Seidel, Jan (2025-06-11).\"Retrieval augmented generation for large language models in healthcare: A systematic review\".PLOS Digital Health.4(6) e0000877.doi:10.1371/journal.pdig.0000877.PMC12157099.\n\n8. 12Luan, Yi; Eisenstein, Jacob; Toutanova, Kristina; Collins, Michael (26 April 2021).\"Sparse, Dense, and Attentional Representations for Text Retrieval\".Transactions of the Association for Computational Linguistics.9:329-345.arXiv:2005.00181.doi:10.1162/tacl_a_00369. Retrieved15 March2025.\n\n9. \u2191\"Information retrieval\".Microsoft. 10 January 2025. Retrieved15 March2025.\n\n10. \u2191Khattab, Omar; Zaharia, Matei (2020).\"ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT\".Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. pp.39-48.doi:10.1145/3397271.3401075.ISBN978-1-4503-8016-4.\n\n11. \u2191Wang, Yup; Conroy, John M.; Molino, Neil; Yang, Julia; Green, Mike (2024).\"Laboratory for Analytic Sciences in TREC 2024 Retrieval Augmented Generation Track\".NIST TREC 2024. Retrieved15 March2025.\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n",
+        "latency_sec": 85.66,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.8,
+            "answer_relevancy": 0.8659889845123968,
+            "context_precision": 0.5833333333041666,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 11,
+        "category": "AMBIGUOUS",
+        "question": "When was it first proposed?",
+        "generated_answer": "The first proposal date is not explicitly stated in the provided Evidence. However, it is mentioned that the proposal itself is often supposed to be a surprise, although in practice this is rarely actually the case . Surveys have found that most proposals are not surprises, and most wedding engagements begin with a conversation in which the parties mutually agree to wed . \n\nIn the context of planning a proposal, it is suggested to start by thinking about any of your partner's wishes and desires that they've expressed to you, including any specific dates or times they may have mentioned . However, there is no specific information provided on the first proposal date.\n\nIt's worth noting that the Evidence also mentions the process of finding the person you want to marry, which includes the first date . However, this is not directly related to the proposal date.\n\n The proposal itself is often supposed to be a surprise, although in practice this is rarely actually the case. Surveys have found that most proposals are not surprises, and most wedding engagements begin with a conversation in which the parties mutually agree to wed.\n\n After How and Where, I think the last big piece is planning When to propose. Again, I\u2019d say you should start by thinking about any of your partner\u2019s wishes and desires that they\u2019ve expressed to you.\n\n Dating is the process of finding the person you want to marry. The first date is the first step in that process, and when it leads to marriage, it\u2019s one of the first steps to marriage.",
+        "retrieved_context": "No relevant context found.",
+        "latency_sec": 201.67,
+        "recovery_used": true,
+        "correction_path": [
+            "rewrite_query",
+            "retry_retrieval",
+            "web_search",
+            "merge_context",
+            "log_knowledge_gap",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 3,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.13333333333333333,
+            "answer_relevancy": 0.0,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 12,
+        "category": "AMBIGUOUS",
+        "question": "How do you chunk code files?",
+        "generated_answer": "Code files are best chunked and vectorized as whole functions or classes. This approach respects the natural chunks built into certain file types, such as code files [1].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\n- File format-based chunking. Certain file types have natural chunks built in, and it's best to respect them. For example, code files are best chunked and vectorized as whole functions or classes. HTML files should leave<table> or base64 encoded <img>elements intact. Similar considerations should be taken for pdf files. Libraries such as Unstructured orLangChaincan assist with this method.\n\nHybrid search\n\n[\nedit\n]\n\nSometimes vector database searches (\naka\n \nsemantic search\n technique) can miss key facts needed to answer a user's question. One way to mitigate this is to do a traditional text search (\naka\n \nfull text search\n), combine those results to the text chunks linked to the retrieved vectors from the vector search, and feed the combined hybrid text (using effective scoring or reranking scoring) into the language model for generation.\n[\n17\n]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\nIt has been reported that Retro is not reproducible,\n so modifications were made to make it so. The more reproducible version is called Retro++ and includes in-context RAG.\n[\n16\n]\n\nChunking\n\n[\nedit\n]\n\nSee also: \nChunking (computing)\n\nChunking involves various strategies for breaking up the data into vectors so the retriever can find details in it.\n\nDifferent data styles have patterns that correct chunking can take advantage of.\n\nThree types of chunking strategies are:\n[\ncitation needed\n]\n\n- Fixed length with overlap. This is fast and easy. Overlapping consecutive chunks helps to maintain semantic context across chunks.\n\n- Syntax-based chunks can break the document up into sentences. Libraries such asspaCyorNLTKcan also help.\n\n- File format-based chunking. Certain file types have natural chunks built in, and it's best to respect them. For example, code files are best chunked and vectorized as whole functions or classes. HTML files should leave<table> or base64 encoded <img>elements intact. Similar considerations should be taken for pdf files. Libraries such as Unstructured orLangChaincan assist with this method.\n",
+        "latency_sec": 84.18,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.8,
+            "answer_relevancy": 0.9640184353372239,
+            "context_precision": 0.99999999995,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 13,
+        "category": "AMBIGUOUS",
+        "question": "What is prompt stuffing?",
+        "generated_answer": "Prompt stuffing is a technique used with Retrieval-Augmented Generation (RAG) that involves adding additional relevant context to the input to guide the model's response. This approach provides the model with key information early in the prompt, encouraging it to prioritize the supplied data over pre-existing training knowledge .",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[RAG and LLM limitations]\n\nLLMs with RAG are programmed to prioritize new information. This technique has been called \"prompt stuffing.\" Without prompt stuffing, the LLM's input is generated by a user; with prompt stuffing, additional relevant context is added to this input to guide the model's response. This approach provides the LLM with key information early in the prompt, encouraging it to prioritize the supplied data over pre-existing training knowledge.\n[\n6\n]\n\nProcess\n\n[\nedit\n]\n\nRetrieval-augmented generation (RAG) enhances \nlarge language models\n (LLMs) by incorporating an \ninformation-retrieval\n mechanism that allows models to access and utilize additional data beyond their original training set. \nArs Technica\n notes that \"when new information becomes available, rather than having to retrain the model, all that's needed is to augment the model's external knowledge base with the updated information\" (\"augmentation\").\n[\n4\n]\n IBM states that \"in the generative phase, the LLM draws from the augmented prompt and its internal representation of its training data to synthesize\" an answer.\n[\n1\n]\n",
+        "latency_sec": 81.3,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.7959362389969485,
+            "context_precision": 0.9999999999,
+            "context_recall": 1.0,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 14,
+        "category": "AMBIGUOUS",
+        "question": "Tell me about the Retro one.",
+        "generated_answer": "Retro is a redesigned language model for the RAG (Retrieval-Augmented Generation) scheme. It consists of Attention, Chunked Cross Attention, and Feed Forward layers. By redesigning the language model with the retriever in mind, a 25-time smaller network can achieve comparable perplexity to its much larger counterparts . \n\nRetro is trained from scratch, which incurs a high cost of training runs, but the hypothesis is that by giving domain knowledge during training, Retro needs less focus on the domain and can devote its smaller weight resources only to language semantics. However, it has been reported that Retro is not reproducible, so modifications were made to make it so, resulting in a more reproducible version called Retro++ .",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\n- Reranking techniques can refine retriever performance by prioritizing the most relevant retrieved documents during training.[14]\n\nLanguage model\n\n[\nedit\n]\n\nRetro language model for RAG. Each Retro block consists of Attention, Chunked Cross Attention, and Feed Forward layers. Black-lettered boxes show data being changed, and blue lettering shows the algorithm performing the changes.\n\nBy redesigning the language model with the retriever in mind, a 25-time smaller network can get comparable perplexity as its much larger counterparts.\n[\n15\n]\n Because it is trained from scratch, this method (Retro) incurs the high cost of training runs that the original RAG scheme avoided. The hypothesis is that by giving domain knowledge during training, Retro needs less focus on the domain and can devote its smaller weight resources only to language semantics. The redesigned language model is shown here.\n\nIt has been reported that Retro is not reproducible,\n so modifications were made to make it so. The more reproducible version is called Retro++ and includes in-context RAG.\n[\n16\n]\n",
+        "latency_sec": 12.37,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.875,
+            "answer_relevancy": 0.6517584927234488,
+            "context_precision": 0.9999999999,
+            "context_recall": 0.3333333333333333,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 15,
+        "category": "AMBIGUOUS",
+        "question": "What is the issue with poisoning?",
+        "generated_answer": "Poisoning is an injury that results from being exposed to an exogenous substance that causes cellular injury or death . This exposure can occur through various routes, including inhalation, ingestion, injection, or absorption, and may also be acquired in utero . The severity of poisoning and its outcome in a child are determined by several factors, including the type of poison, the dose, the formulation, the route of exposure, the age of the child, the presence of other poisons, the state of nutrition of the child, and the presence of other diseases or injuries .\n\nThe epidemiology of poisoning can be studied through various means, including hospital admissions and discharge records, mortality data, emergency department records, and surveillance systems, as well as enquiries to poison control centres . However, globally, data on the type of toxic agents that result in child poisoning and death are limited due to under-recording and under-reporting of childhood poisoning incidents .\n\nSymptoms of poisoning vary depending on the route of exposure and the type of poison. For example, symptoms of poison chemicals in the eye include eye pain, redness, or swelling . Signs and symptoms of swallowing poison include digestive issues such as diarrhea, nausea, and/or vomiting . Getting poison on the skin can cause a rash, pain, and stinging .\n\nIn cases of poisoning, it is essential to act quickly. If a person collapses or loses consciousness, has a seizure, or has difficulty breathing, call 911 immediately . If a person has severe eye irritation, pain, redness, swelling, or vision issues after rinsing for 15 to 20 minutes, or has severe skin symptoms like blistering burns, pain, swelling, or redness after rinsing for 15 minutes, call 911 after starting first aid .\n\nPoisoning can happen if a person swallows, touches, or breathes in substances that can be harmful, such as chemicals or medicines . If a person thinks they or someone else has been poisoned, they should get medical advice immediately . Symptoms of poisoning may include feeling sick or being sick, diarrhea, feeling sleepy, blurred vision, high temperature, confusion, difficulty breathing, seizures, and loss of consciousness .\n\nSubstances that can potentially cause poisoning include prescription and over-the-counter medications, illicit drugs, gases, chemicals, vitamins, food, mushrooms, plants, and animal or insect venom . The diagnosis of poisoning is based on symptoms, information from the poisoned person and bystanders, and sometimes on blood and urine tests . Treatments for poisoning include supporting the person's body functions, preventing additional absorption of the poison, increasing elimination of the poison, and sometimes giving a specific antidote .\n\nIn conclusion, poisoning is a serious issue that requires immediate attention. It is essential to be aware of the symptoms and causes of poisoning and to act quickly in case of an emergency.",
+        "retrieved_context": "No relevant context found.",
+        "latency_sec": 177.42,
+        "recovery_used": true,
+        "correction_path": [
+            "rewrite_query",
+            "retry_retrieval",
+            "web_search",
+            "merge_context",
+            "log_knowledge_gap",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 3,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.0,
+            "context_precision": null,
+            "context_recall": null,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 16,
+        "category": "OUT_OF_DOMAIN",
+        "question": "What are the main new features released in Python 3.12?",
+        "generated_answer": "Python 3.12 brings several improvements to the table, including:\n\nBetter error messages with helpful suggestions and guidance [1]. These improvements include added 'stdlib' as a source of places for \"did you mean\", class member \"did you mean\", import from syntax error \"did you mean\", and import names \"did you mean\" [2].\n\nMore expressive f-strings that are backed by Python's PEG parser . This allows for easier use of f-strings, including the ability to reuse quotes and include escape sequences inside them .\n\nOptimizations, including inlined comprehensions, to help Python run faster . This is achieved through the use of a new syntax for type variables that you use to annotate generics .\n\nA new syntax for type variables that you use to annotate generics . This is introduced by PEP 695, which provides a more compact and explicit way to create generic classes and functions .\n\nSupport for the powerful `perf` profiler on Linux .\n\nA new typing feature, the `@override` decorator, which helps avoid certain kinds of bugs, especially when you refactor your code .\n\nImmortal objects, which are objects that are never updated and always stay the same . This can have huge implications for Python and future goals.\n\nA per-interpreter GIL (Global Interpreter Lock), which allows Python to take better advantage of multiple CPU cores .\n\nLow overhead debugging features that make using a debugger by default for all development tasks a no-brainer .\n\nNew standard library APIs, including improvements to the `array`, `asyncio`, `calendar`, `csv`, `dis`, `fractions`, `importlib.resources`, `inspect`, `itertools`, `math`, `os`, `os.path`, and `pathlib` modules .\n\nThese are just a few of the many new features and improvements in Python 3.12.\n\nReferences:\n[1] https://realpython.com/python312-new-features\n[2] https://medium.com/@syedyasir441/python-3-12-whats-new-bda9ad7f15b9\n https://blog.jetbrains.com/pycharm/2023/11/python-3-12\n https://docs.python.org/3/whatsnew/3.12.html\n https://www.youtube.com/watch?v=udHmeAmOlbI&vl=en-US\n https://www.youtube.com/watch?v=udHmeAmOlbI&vl=en-US\n https://docs.python.org/3/whatsnew/3.12.html\n https://docs.python.org/3/whatsnew/3.12.html\n https://docs.python.org/3/whatsnew/3.12.html\n https://realpython.com/python312-new-features\n https://www.youtube.com/watch?v=udHmeAmOlbI&vl=en-US\n https://www.youtube.com/watch?v=udHmeAmOlbI&vl=en-US\n https://blog.jetbrains.com/pycharm/2023/11/python-3-12\n https://docs.python.org/3/whatsnew/3.12.html",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n6. \u2191\"Mitigating LLM hallucinations in text summarisation\".BBC. 20 June 2024. Retrieved7 March2025.\n\n7. \u2191Amugongo, Lameck Mbangula; Mascheroni, Pietro; Brooks, Steven; Doering, Stefan; Seidel, Jan (2025-06-11).\"Retrieval augmented generation for large language models in healthcare: A systematic review\".PLOS Digital Health.4(6) e0000877.doi:10.1371/journal.pdig.0000877.PMC12157099.\n\n8. 12Luan, Yi; Eisenstein, Jacob; Toutanova, Kristina; Collins, Michael (26 April 2021).\"Sparse, Dense, and Attentional Representations for Text Retrieval\".Transactions of the Association for Computational Linguistics.9:329-345.arXiv:2005.00181.doi:10.1162/tacl_a_00369. Retrieved15 March2025.\n\n9. \u2191\"Information retrieval\".Microsoft. 10 January 2025. Retrieved15 March2025.\n\n10. \u2191Khattab, Omar; Zaharia, Matei (2020).\"ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT\".Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. pp.39-48.doi:10.1145/3397271.3401075.ISBN978-1-4503-8016-4.\n\n11. \u2191Wang, Yup; Conroy, John M.; Molino, Neil; Yang, Julia; Green, Mike (2024).\"Laboratory for Analytic Sciences in TREC 2024 Retrieval Augmented Generation Track\".NIST TREC 2024. Retrieved15 March2025.\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n[SPLIT: PARAGRAPH]\nImplementations | Audio-visualAlexNetWaveNetHuman image synthesisHWROCRComputer visionSpeech synthesis15.aiElevenLabsSpeech recognitionWhisperFacial recognitionAlphaFoldText-to-image modelsAuroraDALL-EFireflyFluxGPT ImageIdeogramImagenMidjourneyRecraftStable DiffusionText-to-video modelsDream MachineRunway GenHailuo AIKlingSoraSeedanceVeoMusic generationRiffusionSunoUdioWorld modelsGenieOasisTextList of large language modelsProject DebaterIBM WatsonIBM WatsonxDecisionalAlphaGoAlphaZeroOpenAI FiveSelf-driving carMuZeroAction selectionAutoGPTRobot controlReasoning systemsDeductive classifiersExpert systemsInference enginesKnowledge-based systemsLogic programsProcedural reasoning systemsSemantic reasonersRule-based systemsCognitive architecturesACT-RSoarCLARIONLIDAOpenCogKnowledge basesConceptNetWikidataDBpediaYAGO | Audio-visual | AlexNetWaveNetHuman image synthesisHWROCRComputer visionSpeech synthesis15.aiElevenLabsSpeech recognitionWhisperFacial recognitionAlphaFoldText-to-image modelsAuroraDALL-EFireflyFluxGPT ImageIdeogramImagenMidjourneyRecraftStable DiffusionText-to-video modelsDream MachineRunway GenHailuo AIKlingSoraSeedanceVeoMusic generationRiffusionSunoUdioWorld modelsGenieOasis | Text | List of large language modelsProject DebaterIBM WatsonIBM Watsonx | Decisional | AlphaGoAlphaZeroOpenAI FiveSelf-driving carMuZeroAction selectionAutoGPTRobot control | Reasoning systems | Deductive classifiersExpert systemsInference enginesKnowledge-based systemsLogic programsProcedural reasoning systemsSemantic reasonersRule-based systems | Cognitive architectures | ACT-RSoarCLARIONLIDAOpenCog | Knowledge bases | ConceptNetWikidataDBpediaYAGO\nAudio-visual | AlexNetWaveNetHuman image synthesisHWROCRComputer visionSpeech synthesis15.aiElevenLabsSpeech recognitionWhisperFacial recognitionAlphaFoldText-to-image modelsAuroraDALL-EFireflyFluxGPT ImageIdeogramImagenMidjourneyRecraftStable DiffusionText-to-video modelsDream MachineRunway GenHailuo AIKlingSoraSeedanceVeoMusic generationRiffusionSunoUdioWorld modelsGenieOasis\nText | List of large language modelsProject DebaterIBM WatsonIBM Watsonx\n",
+        "latency_sec": 314.26,
+        "recovery_used": true,
+        "correction_path": [
+            "rewrite_query",
+            "retry_retrieval",
+            "web_search",
+            "merge_context",
+            "log_knowledge_gap",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 3,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.03571428571428571,
+            "answer_relevancy": 0.9600676706163893,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 17,
+        "category": "OUT_OF_DOMAIN",
+        "question": "Who won the FIFA Men's World Cup in 2022?",
+        "generated_answer": "Argentina won the FIFA Men's World Cup in 2022 .",
+        "retrieved_context": "No relevant context found.",
+        "latency_sec": 148.47,
+        "recovery_used": true,
+        "correction_path": [
+            "strict_grounding",
+            "retry_retrieval",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 2,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.9999999999999998,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 18,
+        "category": "OUT_OF_DOMAIN",
+        "question": "What is the formula for calculating the area of a circle?",
+        "generated_answer": "The area of a circle is calculated using the formula A = \u03c0r^2, where A is the area and r is the radius of the circle.",
+        "retrieved_context": "No relevant context found.",
+        "latency_sec": 186.34,
+        "recovery_used": true,
+        "correction_path": [
+            "strict_grounding",
+            "retry_retrieval",
+            "rewrite_query",
+            "retry_retrieval",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 3,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.9254242504133366,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 19,
+        "category": "OUT_OF_DOMAIN",
+        "question": "How do you resolve a Git merge conflict?",
+        "generated_answer": "When resolving a Git merge conflict, the first step is to identify the conflicting files . These files are typically marked with a conflict marker, such as <<<<<<< HEAD or >>>>>>>, which indicates that there are changes from both the base branch and the feature branch.\n\nTo resolve the conflict, you can use a merge tool, such as Git's built-in merge tool or a third-party tool like KDiff3 . The merge tool allows you to visually compare the changes from both branches and select the desired changes to include in the final merge.\n\nAlternatively, you can resolve the conflict manually by editing the conflicting files directly. This involves identifying the conflicting changes and selecting the desired changes to include in the final merge.\n\nOnce you have resolved the conflict, you can use the `git add` command to stage the resolved files and then use the `git commit` command to commit the merge .\n\nIt's worth noting that Git provides several options for resolving merge conflicts, including the `git merge --abort` command, which allows you to abort the merge and start over, and the `git merge --continue` command, which allows you to continue the merge after resolving the conflicts .\n\nReferences:\n Git documentation: \"Resolving a merge conflict\"\n Git documentation: \"Merging branch\"\n Git documentation: \"Git add\"\n Git documentation: \"Git merge\"",
+        "retrieved_context": "No relevant context found.",
+        "latency_sec": 183.3,
+        "recovery_used": true,
+        "correction_path": [
+            "rewrite_query",
+            "retry_retrieval",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 2,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.14285714285714285,
+            "answer_relevancy": 0.9548813108808649,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 20,
+        "category": "OUT_OF_DOMAIN",
+        "question": "What are the best tourist attractions in Paris?",
+        "error": "'NoneType' object has no attribute 'requires_recovery'"
+    },
+    {
+        "id": 21,
+        "category": "FOLLOW_UP",
+        "question": "What are dense vectors?",
+        "generated_answer": "Dense vectors, which encode meaning, are more compact and contain fewer zeros. They are used in the encoding of text as part of the RAG flow [1].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Applications]\n\nIn healthcare, RAG has been studied as a way to ground large language model outputs in external medical knowledge sources, although reviews have noted continuing challenges around evaluation, ethics, and clinical reliability.\n[\n7\n]\n\nImprovements\n\n[\nedit\n]\n\nImprovements to the basic process above can be applied at different stages in the RAG flow.\n\nEncoder\n\n[\nedit\n]\n\nThese methods focus on the encoding of text as either dense or sparse vectors. \nSparse vectors\n, which encode the identity of a word, are typically \ndictionary\n-length and contain mostly zeros. \nDense vectors\n, which encode meaning, are more compact and contain fewer zeros. Various enhancements can improve the way similarities are calculated in the vector stores (databases).\n[\n8\n]\n\n- Performance improves by optimizing how vector similarities are calculated.Dot productsenhance similarity scoring, whileapproximate nearest neighbor(ANN) searches improve retrieval efficiency overK-nearest neighbors(KNN) searches.[9]\n\n- Accuracy may be improved with Late Interactions, which allow the system to compare words more precisely after retrieval. This helps refine document ranking and improve search relevance.[10]\n\n- Hybrid vector approaches may be used to combine dense vector representations with sparseone-hotvectors, taking advantage of the computational efficiency of sparse dot products over dense vector operations.[8]\n\n- Other retrieval techniques focus on improving accuracy by refining how documents are selected. Some retrieval methods combine sparse representations, such as SPLADE, with query expansion strategies to improve search accuracy and recall.[11]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Improvements]\n\n- File format-based chunking. Certain file types have natural chunks built in, and it's best to respect them. For example, code files are best chunked and vectorized as whole functions or classes. HTML files should leave<table> or base64 encoded <img>elements intact. Similar considerations should be taken for pdf files. Libraries such as Unstructured orLangChaincan assist with this method.\n\nHybrid search\n\n[\nedit\n]\n\nSometimes vector database searches (\naka\n \nsemantic search\n technique) can miss key facts needed to answer a user's question. One way to mitigate this is to do a traditional text search (\naka\n \nfull text search\n), combine those results to the text chunks linked to the retrieved vectors from the vector search, and feed the combined hybrid text (using effective scoring or reranking scoring) into the language model for generation.\n[\n17\n]\n",
+        "latency_sec": 39.41,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.8490930010796418,
+            "context_precision": 0.9999999999,
+            "context_recall": 0.5,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 22,
+        "category": "FOLLOW_UP",
+        "question": "How do they differ from sparse ones?",
+        "generated_answer": "Dense vectors and sparse vectors differ in their characteristics and usage. Dense vectors, which encode meaning, are more compact and contain fewer zeros compared to sparse vectors [1]. On the other hand, sparse vectors, which encode the identity of a word, are typically dictionary-length and contain mostly zeros .",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Applications]\n\nIn healthcare, RAG has been studied as a way to ground large language model outputs in external medical knowledge sources, although reviews have noted continuing challenges around evaluation, ethics, and clinical reliability.\n[\n7\n]\n\nImprovements\n\n[\nedit\n]\n\nImprovements to the basic process above can be applied at different stages in the RAG flow.\n\nEncoder\n\n[\nedit\n]\n\nThese methods focus on the encoding of text as either dense or sparse vectors. \nSparse vectors\n, which encode the identity of a word, are typically \ndictionary\n-length and contain mostly zeros. \nDense vectors\n, which encode meaning, are more compact and contain fewer zeros. Various enhancements can improve the way similarities are calculated in the vector stores (databases).\n[\n8\n]\n\n- Performance improves by optimizing how vector similarities are calculated.Dot productsenhance similarity scoring, whileapproximate nearest neighbor(ANN) searches improve retrieval efficiency overK-nearest neighbors(KNN) searches.[9]\n\n- Accuracy may be improved with Late Interactions, which allow the system to compare words more precisely after retrieval. This helps refine document ranking and improve search relevance.[10]\n\n- Hybrid vector approaches may be used to combine dense vector representations with sparseone-hotvectors, taking advantage of the computational efficiency of sparse dot products over dense vector operations.[8]\n\n- Other retrieval techniques focus on improving accuracy by refining how documents are selected. Some retrieval methods combine sparse representations, such as SPLADE, with query expansion strategies to improve search accuracy and recall.[11]\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n",
+        "latency_sec": 102.75,
+        "recovery_used": false,
+        "correction_path": [],
+        "retry_count": 0,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 1.0,
+            "answer_relevancy": 0.7998778281447488,
+            "context_precision": 0.9999999999,
+            "context_recall": 0.4,
+            "hallucination_detected": false
+        }
+    },
+    {
+        "id": 23,
+        "category": "FOLLOW_UP",
+        "question": "Which search approach combines both of them?",
+        "generated_answer": "A search approach that combines both dense and sparse vectors is Latent Retrieval [1].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[Applications]\n\nIn healthcare, RAG has been studied as a way to ground large language model outputs in external medical knowledge sources, although reviews have noted continuing challenges around evaluation, ethics, and clinical reliability.\n[\n7\n]\n\nImprovements\n\n[\nedit\n]\n\nImprovements to the basic process above can be applied at different stages in the RAG flow.\n\nEncoder\n\n[\nedit\n]\n\nThese methods focus on the encoding of text as either dense or sparse vectors. \nSparse vectors\n, which encode the identity of a word, are typically \ndictionary\n-length and contain mostly zeros. \nDense vectors\n, which encode meaning, are more compact and contain fewer zeros. Various enhancements can improve the way similarities are calculated in the vector stores (databases).\n[\n8\n]\n\n- Performance improves by optimizing how vector similarities are calculated.Dot productsenhance similarity scoring, whileapproximate nearest neighbor(ANN) searches improve retrieval efficiency overK-nearest neighbors(KNN) searches.[9]\n\n- Accuracy may be improved with Late Interactions, which allow the system to compare words more precisely after retrieval. This helps refine document ranking and improve search relevance.[10]\n\n- Hybrid vector approaches may be used to combine dense vector representations with sparseone-hotvectors, taking advantage of the computational efficiency of sparse dot products over dense vector operations.[8]\n\n- Other retrieval techniques focus on improving accuracy by refining how documents are selected. Some retrieval methods combine sparse representations, such as SPLADE, with query expansion strategies to improve search accuracy and recall.[11]\n",
+        "latency_sec": 156.43,
+        "recovery_used": true,
+        "correction_path": [
+            "strict_grounding",
+            "retry_retrieval",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 2,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.5,
+            "answer_relevancy": 0.6398068298871397,
+            "context_precision": 0.49999999995,
+            "context_recall": 1.0,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 24,
+        "category": "FOLLOW_UP",
+        "question": "Why is that combined approach computationally efficient?",
+        "generated_answer": "Latent Retrieval is computationally efficient because it leverages the strengths of both dense and sparse vectors. Dense vectors encode meaning, being more compact and containing fewer zeros, while sparse vectors are efficient in terms of storage and computation due to only storing non-zero values [1].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n13. \u2191Shi, Weijia; Min, Sewon; Yasunaga, Michihiro; Seo, Minjoon; James, Rich; Lewis, Mike; Zettlemoyer, Luke; Yih, Wen-tau (June 2024).\"REPLUG: Retrieval-Augmented Black-Box Language Models\".Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers). pp.8371-8384.arXiv:2301.12652.doi:10.18653/v1/2024.naacl-long.463. Retrieved16 March2025.\n\n14. \u2191Ram, Ori; Levine, Yoav; Dalmedigos, Itay; Muhlgay, Dor; Shashua, Amnon; Leyton-Brown, Kevin; Shoham, Yoav (2023).\"In-Context Retrieval-Augmented Language Models\".Transactions of the Association for Computational Linguistics.11:1316-1331.arXiv:2302.00083.doi:10.1162/tacl_a_00605. Retrieved16 March2025.\n\n15. \u2191Borgeaud, Sebastian; Mensch, Arthur (2021).\"Improving language models by retrieving from trillions of tokens\"(PDF).\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n",
+        "latency_sec": 187.03,
+        "recovery_used": true,
+        "correction_path": [
+            "strict_grounding",
+            "retry_retrieval",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 2,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.0,
+            "answer_relevancy": 0.6532547581522731,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "hallucination_detected": true
+        }
+    },
+    {
+        "id": 25,
+        "category": "FOLLOW_UP",
+        "question": "Can you summarize all three vector concepts we just discussed?",
+        "generated_answer": "Dense vectors, sparse vectors, and the combined approach of Latent Retrieval can be summarized as follows:\n\nDense vectors are more compact and contain fewer zeros, making them suitable for encoding meaning in text [1]. On the other hand, sparse vectors can be more efficient in terms of storage and computation, as they only store non-zero values. Latent Retrieval combines both dense and sparse vectors, leveraging the strengths of both types to achieve a more efficient and effective search approach [1].\n\nDense vectors encode meaning, are more compact, and contain fewer zeros compared to sparse vectors [1]. They are used in the encoding of text as part of the RAG flow [1]. \n\nSparse vectors, which encode the identity of a word, are typically dictionary-length and contain mostly zeros [1].",
+        "retrieved_context": "--- Evidence 1 ---\nRank: 1 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n17. \u2191Bruch, Sebastian; Gai, Siyu; Ingber, Amir (2023). \"An Analysis of Fusion Functions for Hybrid Retrieval\".ACM Transactions on Information Systems.42(1):1-35.arXiv:2210.11934.doi:10.1145/3596512.\n\n\n--- Evidence 2 ---\nRank: 2 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n13. \u2191Shi, Weijia; Min, Sewon; Yasunaga, Michihiro; Seo, Minjoon; James, Rich; Lewis, Mike; Zettlemoyer, Luke; Yih, Wen-tau (June 2024).\"REPLUG: Retrieval-Augmented Black-Box Language Models\".Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers). pp.8371-8384.arXiv:2301.12652.doi:10.18653/v1/2024.naacl-long.463. Retrieved16 March2025.\n\n14. \u2191Ram, Ori; Levine, Yoav; Dalmedigos, Itay; Muhlgay, Dor; Shashua, Amnon; Leyton-Brown, Kevin; Shoham, Yoav (2023).\"In-Context Retrieval-Augmented Language Models\".Transactions of the Association for Computational Linguistics.11:1316-1331.arXiv:2302.00083.doi:10.1162/tacl_a_00605. Retrieved16 March2025.\n\n15. \u2191Borgeaud, Sebastian; Mensch, Arthur (2021).\"Improving language models by retrieving from trillions of tokens\"(PDF).\n\n16. \u2191Wang, Boxin; Ping, Wei; Xu, Peng; McAfee, Lawrence; Liu, Zihan; Shoeybi, Mohammad; Dong, Yi; Kuchaiev, Oleksii; Li, Bo; Xiao, Chaowei; Anandkumar, Anima; Catanzaro, Bryan (2023).\"Shall We Pretrain Autoregressive Language Models with Retrieval? A Comprehensive Study\".Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. pp.7763-7786.doi:10.18653/v1/2023.emnlp-main.482.\n\n\n--- Evidence 3 ---\nRank: 3 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n[SPLIT: PARAGRAPH]\nImplementations | Audio-visualAlexNetWaveNetHuman image synthesisHWROCRComputer visionSpeech synthesis15.aiElevenLabsSpeech recognitionWhisperFacial recognitionAlphaFoldText-to-image modelsAuroraDALL-EFireflyFluxGPT ImageIdeogramImagenMidjourneyRecraftStable DiffusionText-to-video modelsDream MachineRunway GenHailuo AIKlingSoraSeedanceVeoMusic generationRiffusionSunoUdioWorld modelsGenieOasisTextList of large language modelsProject DebaterIBM WatsonIBM WatsonxDecisionalAlphaGoAlphaZeroOpenAI FiveSelf-driving carMuZeroAction selectionAutoGPTRobot controlReasoning systemsDeductive classifiersExpert systemsInference enginesKnowledge-based systemsLogic programsProcedural reasoning systemsSemantic reasonersRule-based systemsCognitive architecturesACT-RSoarCLARIONLIDAOpenCogKnowledge basesConceptNetWikidataDBpediaYAGO | Audio-visual | AlexNetWaveNetHuman image synthesisHWROCRComputer visionSpeech synthesis15.aiElevenLabsSpeech recognitionWhisperFacial recognitionAlphaFoldText-to-image modelsAuroraDALL-EFireflyFluxGPT ImageIdeogramImagenMidjourneyRecraftStable DiffusionText-to-video modelsDream MachineRunway GenHailuo AIKlingSoraSeedanceVeoMusic generationRiffusionSunoUdioWorld modelsGenieOasis | Text | List of large language modelsProject DebaterIBM WatsonIBM Watsonx | Decisional | AlphaGoAlphaZeroOpenAI FiveSelf-driving carMuZeroAction selectionAutoGPTRobot control | Reasoning systems | Deductive classifiersExpert systemsInference enginesKnowledge-based systemsLogic programsProcedural reasoning systemsSemantic reasonersRule-based systems | Cognitive architectures | ACT-RSoarCLARIONLIDAOpenCog | Knowledge bases | ConceptNetWikidataDBpediaYAGO\nAudio-visual | AlexNetWaveNetHuman image synthesisHWROCRComputer visionSpeech synthesis15.aiElevenLabsSpeech recognitionWhisperFacial recognitionAlphaFoldText-to-image modelsAuroraDALL-EFireflyFluxGPT ImageIdeogramImagenMidjourneyRecraftStable DiffusionText-to-video modelsDream MachineRunway GenHailuo AIKlingSoraSeedanceVeoMusic generationRiffusionSunoUdioWorld modelsGenieOasis\nText | List of large language modelsProject DebaterIBM WatsonIBM Watsonx\n\n\n--- Evidence 4 ---\nRank: 4 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n[SPLIT: PARAGRAPH]\nvteGenerative AI\nConcepts | AutoencoderDeep learningFine-tuningFoundation modelGenerative adversarial networkGenerative pre-trained transformerLarge language modelModel Context ProtocolNeural networkPrompt engineeringReinforcement learning from human feedbackRetrieval-augmented generationSelf-supervised learningStochastic parrotSynthetic dataTop-p samplingTransformerVariational autoencoderVibe codingVision transformerWord embedding\nModels | TextAmazon NovaCharacter.aiClaudeCommandDeepSeekDoubaoErnieEXAONEGeminiGemmaGLMGPTChatGPTGrokIBM GraniteKimiMAIMicrosoft CopilotMistralMiniMaxMuse SparkNemotronPerplexitySolarPoeHKChatQwenTencent HyXiaomi MiMoYou.comImageAdobe FireflyFluxGPT ImageIdeogramMidjourneyNano BananaRecraftSeedreamStable DiffusionVideoDream MachineGenieworld modelHailuo AIKling AILTXRunway GenSeedanceSoraVeoSpeech15.aiElevenGemini SpeechMiniMax SpeechMusicEleven MusicEndelMiniMax MusicRiffusionSunoUdio | Text | Amazon NovaCharacter.aiClaudeCommandDeepSeekDoubaoErnieEXAONEGeminiGemmaGLMGPTChatGPTGrokIBM GraniteKimiMAIMicrosoft CopilotMistralMiniMaxMuse SparkNemotronPerplexitySolarPoeHKChatQwenTencent HyXiaomi MiMoYou.com | Image | Adobe FireflyFluxGPT ImageIdeogramMidjourneyNano BananaRecraftSeedreamStable Diffusion | Video | Dream MachineGenieworld modelHailuo AIKling AILTXRunway GenSeedanceSoraVeo | Speech | 15.aiElevenGemini SpeechMiniMax Speech | Music | Eleven MusicEndelMiniMax MusicRiffusionSunoUdio\nText | Amazon NovaCharacter.aiClaudeCommandDeepSeekDoubaoErnieEXAONEGeminiGemmaGLMGPTChatGPTGrokIBM GraniteKimiMAIMicrosoft CopilotMistralMiniMaxMuse SparkNemotronPerplexitySolarPoeHKChatQwenTencent HyXiaomi MiMoYou.com\nImage | Adobe FireflyFluxGPT ImageIdeogramMidjourneyNano BananaRecraftSeedreamStable Diffusion\n\n\n--- Evidence 5 ---\nRank: 5 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n6. \u2191\"Mitigating LLM hallucinations in text summarisation\".BBC. 20 June 2024. Retrieved7 March2025.\n\n7. \u2191Amugongo, Lameck Mbangula; Mascheroni, Pietro; Brooks, Steven; Doering, Stefan; Seidel, Jan (2025-06-11).\"Retrieval augmented generation for large language models in healthcare: A systematic review\".PLOS Digital Health.4(6) e0000877.doi:10.1371/journal.pdig.0000877.PMC12157099.\n\n8. 12Luan, Yi; Eisenstein, Jacob; Toutanova, Kristina; Collins, Michael (26 April 2021).\"Sparse, Dense, and Attentional Representations for Text Retrieval\".Transactions of the Association for Computational Linguistics.9:329-345.arXiv:2005.00181.doi:10.1162/tacl_a_00369. Retrieved15 March2025.\n\n9. \u2191\"Information retrieval\".Microsoft. 10 January 2025. Retrieved15 March2025.\n\n10. \u2191Khattab, Omar; Zaharia, Matei (2020).\"ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT\".Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. pp.39-48.doi:10.1145/3397271.3401075.ISBN978-1-4503-8016-4.\n\n11. \u2191Wang, Yup; Conroy, John M.; Molino, Neil; Yang, Julia; Green, Mike (2024).\"Laboratory for Analytic Sciences in TREC 2024 Retrieval Augmented Generation Track\".NIST TREC 2024. Retrieved15 March2025.\n\n12. \u2191Lee, Kenton; Chang, Ming-Wei; Toutanova, Kristina (2019).\"\"Latent Retrieval for Weakly Supervised Open Domain Question Answering\"\"(PDF).\n\n\n--- Evidence 6 ---\nRank: 6 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n[SPLIT: PARAGRAPH]\nDecisional | AlphaGoAlphaZeroOpenAI FiveSelf-driving carMuZeroAction selectionAutoGPTRobot control\nReasoning systems | Deductive classifiersExpert systemsInference enginesKnowledge-based systemsLogic programsProcedural reasoning systemsSemantic reasonersRule-based systems\nCognitive architectures | ACT-RSoarCLARIONLIDAOpenCog\nKnowledge bases | ConceptNetWikidataDBpediaYAGO\nPeople | Alan TuringWarren Sturgis McCullochWalter PittsJohn von NeumannChristopher D. ManningClaude ShannonShun'ichi AmariKunihiko FukushimaTakeo KanadeMarvin MinskyJohn McCarthyNathaniel RochesterAllen NewellCliff ShawHerbert A. SimonOliver SelfridgeFrank RosenblattBernard WidrowJoseph WeizenbaumSeymour PapertSeppo LinnainmaaPaul WerbosGeoffrey HintonJohn HopfieldJ\u00fcrgen SchmidhuberYann LeCunYoshua BengioLotfi A. ZadehStephen GrossbergAlex GravesJames GoodnightAndrew NgFei-Fei LiAlex KrizhevskyIlya SutskeverOriol VinyalsQuoc V. LeIan GoodfellowDemis HassabisDavid SilverAndrej KarpathyAshish VaswaniNoam ShazeerAidan GomezJohn SchulmanMustafa SuleymanJan LeikeDaniel KokotajloFran\u00e7ois Chollet\nNeural network architectures | Neural Turing machineDifferentiable neural computerTransformerVision transformer (ViT)Recurrent neural network (RNN)Long short-term memory (LSTM)Gated recurrent unit (GRU)Echo state networkMultilayer perceptron (MLP)Convolutional neural network (CNN)Residual neural network (RNN)Highway networkMambaAutoencoderVariational autoencoder (VAE)Generative adversarial network (GAN)Graph neural network (GNN)\nPolitical | AI Cold WarAI in governmentAI safety(Alignment)AI takeoverElectionsEthics of AIEUAI ActNationalismPrecautionary principleRegulation of AIUSVirtual politicianPropaganda\n\n\n--- Evidence 7 ---\nRank: 7 | Source: Unknown Source | Title: Untitled Document\nContent:\n[References]\n\n[SPLIT: PARAGRAPH]\nVideo | Dream MachineGenieworld modelHailuo AIKling AILTXRunway GenSeedanceSoraVeo\nSpeech | 15.aiElevenGemini SpeechMiniMax Speech\nMusic | Eleven MusicEndelMiniMax MusicRiffusionSunoUdio\nProducts | Coding toolsClaude CodeCodexCursorDevin AIGitHub CopilotGoogle AntigravityReplitAgentsAutoGPTChatGPT agentClaude CoworkGemini SparkManusMiniMax AgentOpenClaw | Coding tools | Claude CodeCodexCursorDevin AIGitHub CopilotGoogle AntigravityReplit | Agents | AutoGPTChatGPT agentClaude CoworkGemini SparkManusMiniMax AgentOpenClaw\nCoding tools | Claude CodeCodexCursorDevin AIGitHub CopilotGoogle AntigravityReplit\nAgents | AutoGPTChatGPT agentClaude CoworkGemini SparkManusMiniMax AgentOpenClaw\nApplications | DeepfakeaudioSlopslopaganda\nCompanies | Aleph AlphaAnthropicAnysphereBaichuanCanvaCognition AICohereContextual AIDeepSeekDeepLEleutherAIElevenLabsGoogleAIDeepMindHeyGenHugging FaceInflection AIKuaishouLightricksLovableLuma LabsMeta AIMeta Superintelligence LabsMicrosoft AIMiniMaxMistral AIMoonshot AIOpenAIPerplexity AIRunwaySafe SuperintelligenceSakana AISalesforceScale AISoundHound AISpaceXAIStability AIStepFunSynthesiaThinking Machines LabUpstageXiaomiZ.ai\nControversies | Generative AI pornographyDeepfake pornographyon Grokof Taylor SwiftPause Giant AI ExperimentsRemoval of Sam Altman from OpenAIStatement on AI RiskTay (chatbot)Th\u00e9\u00e2tre D'op\u00e9ra SpatialVoiceverse NFT plagiarism\nCategoryCommons\n",
+        "latency_sec": 249.09,
+        "recovery_used": true,
+        "correction_path": [
+            "strict_grounding",
+            "retry_retrieval",
+            "ask_clarification",
+            "stop"
+        ],
+        "retry_count": 2,
+        "recovery_success": false,
+        "metrics": {
+            "faithfulness": 0.058823529411764705,
+            "answer_relevancy": 0.7204664618535997,
+            "context_precision": 0.0,
+            "context_recall": 0.0,
+            "hallucination_detected": true
+        }
+    }
+]

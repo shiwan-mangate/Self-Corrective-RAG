@@ -1,0 +1,38 @@
+# =========================
+# Security & Environments
+# =========================
+.env
+.env.*
+venv/
+env/
+.venv/
+
+# =========================
+# Python Cache
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# =========================
+# IDEs and Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Logs and Databases
+# =========================
+*.log
+*.sqlite3
+
+# =========================
+# Optional: Benchmark Results
+# =========================
+# Uncomment the line below if you DO NOT want your JSON results pushed to GitHub.
+# If you want to show off your results on GitHub, leave it commented out!
+# benchmarks/results/*.json

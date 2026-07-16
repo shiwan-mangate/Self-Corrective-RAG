@@ -1,0 +1,105 @@
+{
+    "overall": {
+        "vanilla": {
+            "faithfulness": 0.581,
+            "answer_relevancy": 0.573,
+            "context_precision": 0.702,
+            "context_recall": 0.592,
+            "hallucination_rate": 0.208,
+            "latency_sec": 79.36
+        },
+        "self_healing": {
+            "faithfulness": 0.621,
+            "answer_relevancy": 0.736,
+            "context_precision": 0.645,
+            "context_recall": 0.583,
+            "hallucination_rate": 0.375,
+            "latency_sec": 116.03
+        },
+        "improvement": {
+            "faithfulness": "+6.9%",
+            "answer_relevancy": "+28.5%",
+            "context_precision": "-8.1%",
+            "context_recall": "-1.6%",
+            "hallucination_rate": "+80.0%",
+            "latency_sec": "+36.67s"
+        }
+    },
+    "categories": {
+        "MULTI_HOP": {
+            "vanilla": {
+                "faithfulness": 0.982,
+                "answer_relevancy": 0.908,
+                "context_precision": 0.867,
+                "context_recall": 0.933
+            },
+            "self_healing": {
+                "faithfulness": 0.91,
+                "answer_relevancy": 0.93,
+                "context_precision": 0.867,
+                "context_recall": 0.933
+            }
+        },
+        "OUT_OF_DOMAIN": {
+            "vanilla": {
+                "faithfulness": 0.0,
+                "answer_relevancy": 0.0,
+                "context_precision": 0.0,
+                "context_recall": 0.0
+            },
+            "self_healing": {
+                "faithfulness": 0.045,
+                "answer_relevancy": 0.96,
+                "context_precision": 0.0,
+                "context_recall": 0.0
+            }
+        },
+        "FOLLOW_UP": {
+            "vanilla": {
+                "faithfulness": 0.346,
+                "answer_relevancy": 0.753,
+                "context_precision": 0.2,
+                "context_recall": 0.1
+            },
+            "self_healing": {
+                "faithfulness": 0.512,
+                "answer_relevancy": 0.732,
+                "context_precision": 0.5,
+                "context_recall": 0.38
+            }
+        },
+        "AMBIGUOUS": {
+            "vanilla": {
+                "faithfulness": 0.5,
+                "answer_relevancy": 0.468,
+                "context_precision": 1.0,
+                "context_recall": 0.778
+            },
+            "self_healing": {
+                "faithfulness": 0.562,
+                "answer_relevancy": 0.482,
+                "context_precision": 0.75,
+                "context_recall": 0.583
+            }
+        },
+        "FACTUAL": {
+            "vanilla": {
+                "faithfulness": 0.96,
+                "answer_relevancy": 0.62,
+                "context_precision": 1.0,
+                "context_recall": 0.75
+            },
+            "self_healing": {
+                "faithfulness": 0.96,
+                "answer_relevancy": 0.62,
+                "context_precision": 1.0,
+                "context_recall": 0.9
+            }
+        }
+    },
+    "recovery_stats": {
+        "attempts": 10,
+        "successes": 1,
+        "rate": 10.0
+    }
+}

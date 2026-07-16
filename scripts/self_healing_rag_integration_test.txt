@@ -1,0 +1,5 @@
+The Self-Healing RAG system evaluates retrieval quality.
+If retrieval confidence is low, the system can rewrite the query.
+Web search via Tavily is used as a fallback for missing internal knowledge.
+The Memory Subsystem automatically compresses conversations exceeding 4000 tokens.
+NovaTech employees receive 24 paid leave days per year and may work remotely three days per week.

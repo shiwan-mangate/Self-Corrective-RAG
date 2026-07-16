@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "ground_truth": "The term retrieval-augmented generation (RAG) was formally introduced in a 2020 research paper. The paper described a method of combining a parametric language model with a non-parametric external memory that is accessed through retrieval during inference time."
+  },
+  {
+    "id": 2,
+    "ground_truth": "When Google's LLM tool, initially named Google Bard, generated incorrect factual information regarding the James Webb Space Telescope, the highly publicized error contributed to a massive $100 billion decline in Google's overall stock value. This highlights the severe financial consequences of AI hallucinations."
+  },
+  {
+    "id": 3,
+    "ground_truth": "The technique is known as \"prompt stuffing.\" It involves appending additional, highly relevant retrieved context to a user's initial input. This provides the LLM with key information early in the prompt, encouraging it to prioritize the newly supplied data over its static, pre-existing training knowledge."
+  },
+  {
+    "id": 4,
+    "ground_truth": "Sparse vectors are the type of vectors that encode the explicit identity of a word. They are typically the length of an entire dictionary and contain mostly zeros, making them highly computationally efficient for certain types of text retrieval operations."
+  },
+  {
+    "id": 5,
+    "ground_truth": "In the context of pre-training a document retriever, the abbreviation ICT stands for Inverse Cloze Task. This is a specialized training technique that helps the retrieval model learn complex patterns by predicting masked or missing text within the source documents."
+  },
+  {
+    "id": 6,
+    "ground_truth": "Retro is a specialized language model that was redesigned specifically with a retriever in mind. Because of this integration, it can achieve comparable perplexity to much larger models despite being 25 times smaller in network size. Since the original Retro was reported as not reproducible, a modified, reproducible version was created and named Retro++, which successfully includes in-context RAG capabilities."
+  },
+  {
+    "id": 7,
+    "ground_truth": "Sparse vectors encode the exact identity of a word, are usually dictionary-length, and consist mostly of zeros, making dot products computationally efficient. Dense vectors, on the other hand, encode deeper semantic meaning, are highly compact, and contain far fewer zeros. A \"Hybrid vector approach\" is used to seamlessly combine both dense representations and sparse one-hot vectors to maximize both semantic understanding and computational efficiency."
+  },
+  {
+    "id": 8,
+    "ground_truth": "The three types of chunking strategies discussed are: 1) Fixed length with overlap, which maintains semantic context across boundaries; 2) Syntax-based chunks, which break documents into logical sentences; and 3) File format-based chunking, which respects the inherent structure of the document. For HTML files, file format-based chunking is highly recommended so that structural elements like `<table>` or base64 encoded `<img>` tags are left completely intact."
+  },
+  {
+    "id": 9,
+    "ground_truth": "The MIT Technology Review highlighted a case where an LLM retrieved a rhetorical chapter title, \"Barack Hussein Obama: America's First Muslim President?\", from the book 'Faith in the New Millennium'. Because the LLM lacked the ability to truly understand the rhetorical and questioning context of the title, it extracted the text literally and hallucinated the false factual statement that the United States has had a Muslim president. This demonstrates that RAG systems can still generate misinformation if they misinterpret the context of factually correct sources."
+  },
+  {
+    "id": 10,
+    "ground_truth": "In vector database retrieval, approximate nearest neighbor (ANN) searches significantly improve overall retrieval efficiency and speed compared to traditional K-nearest neighbors (KNN) searches. Concurrently, using dot products helps to enhance and optimize how similarity scoring is calculated between the query embeddings and document embeddings."
+  },
+  {
+    "id": 11,
+    "ground_truth": "The technique of Retrieval-Augmented Generation (RAG) was first proposed and introduced to the public in a research paper published in the year 2020."
+  },
+  {
+    "id": 12,
+    "ground_truth": "Code files are best processed using a file format-based chunking strategy. Specifically, they should be chunked and vectorized as whole, intact functions or entire classes to preserve their logical and semantic programming structure."
+  },
+  {
+    "id": 13,
+    "ground_truth": "Prompt stuffing is an AI prompting technique where an LLM's standard user input is heavily augmented with additional retrieved context. By front-loading the prompt with this key information, the model is actively guided to prioritize the newly supplied factual data over its static, pre-existing training knowledge."
+  },
+  {
+    "id": 14,
+    "ground_truth": "Retro is a custom-designed language model built explicitly to work alongside a retriever. By injecting domain knowledge during training, Retro can dedicate its weights strictly to language semantics, allowing it to achieve comparable perplexity to standard models while being 25 times smaller. It must be trained from scratch, and its more reproducible successor is known as Retro++."
+  },
+  {
+    "id": 15,
+    "ground_truth": "RAG poisoning occurs when the retrieval system fetches sources that are factually correct but contextually misleading. The LLM might extract statements without understanding their proper context, or it might struggle to reconcile conflicting information. In the worst-case scenario, the model merges outdated and newly updated details together, producing a highly misleading or entirely false response."
+  },
+  {
+    "id": 16,
+    "ground_truth": "Python 3.12 introduced several major new features, including significantly improved error messages, enhancements to f-string parsing (allowing quote reuse and multi-line expressions inside f-strings), support for isolated subinterpreters for better true parallelism (PEP 684), and seamless integration with the Linux perf profiler."
+  },
+  {
+    "id": 17,
+    "ground_truth": "The Argentina national football team, led by Lionel Messi, won the 2022 FIFA Men's World Cup by defeating France in the final match held in Qatar."
+  },
+  {
+    "id": 18,
+    "ground_truth": "The mathematical formula for calculating the area of a circle is A = \u03c0r\u00b2, where 'A' represents the total area, '\u03c0' (pi) is the mathematical constant approximately equal to 3.14159, and 'r' represents the radius of the circle."
+  },
+  {
+    "id": 19,
+    "ground_truth": "To resolve a Git merge conflict, a developer must first open the conflicted files and locate the conflict markers (<<<<<<<, =======, >>>>>>>). The developer must manually edit the file to combine the changes correctly and delete the markers. Once the code is correct, the developer saves the file, runs `git add <filename>` to stage the resolution, and finally runs `git commit` to complete the merge process."
+  },
+  {
+    "id": 20,
+    "ground_truth": "The best and most iconic tourist attractions in Paris, France, include the Eiffel Tower, the Louvre Museum (home to the Mona Lisa), the Cath\u00e9drale Notre-Dame de Paris, the Arc de Triomphe, the Mus\u00e9e d'Orsay, and the Basilica of Sacr\u00e9-C\u0153ur in Montmartre."
+  },
+  {
+    "id": 21,
+    "ground_truth": "Dense vectors are compact numerical representations used in embeddings that encode the deep semantic meaning of a word or concept. Unlike other vector types, they contain very few zeros."
+  },
+  {
+    "id": 22,
+    "ground_truth": "Sparse vectors differ significantly because they primarily encode the literal identity of a specific word rather than its deeper meaning. Furthermore, sparse vectors are typically the length of an entire dictionary and consist almost entirely of zeros, whereas dense vectors are highly compact and semantically rich."
+  },
+  {
+    "id": 23,
+    "ground_truth": "The search approach that successfully combines both dense vectors and sparse vectors is known as a Hybrid Vector approach, or Hybrid Search."
+  },
+  {
+    "id": 24,
+    "ground_truth": "The Hybrid Vector approach is computationally efficient because it takes advantage of sparse dot products. By blending these with dense vectors, the system can bypass some of the heavy computational overhead required by pure dense vector operations while maintaining high semantic accuracy."
+  },
+  {
+    "id": 25,
+    "ground_truth": "Sparse vectors are dictionary-length representations containing mostly zeros that efficiently encode exact word identity. Dense vectors are compact, non-zero representations that encode deep semantic meaning. Hybrid vector approaches blend the two methods together, allowing a retrieval system to benefit from both the deep semantic understanding of dense vectors and the computational speed of sparse dot products."
+  }
+]
