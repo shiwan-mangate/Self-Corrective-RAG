@@ -36,7 +36,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # =========================================================================
 # This runs during build time so the model is already present when booting.
 # CHANGE 'all-MiniLM-L6-v2' to your exact sentence-transformer model identifier.
-RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('BAAI/bge-small-en-v1.5')"
 
 # =========================================================================
 # Step 6: Copy application source code
