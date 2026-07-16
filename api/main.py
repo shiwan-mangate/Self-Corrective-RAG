@@ -3,17 +3,24 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-
+# ==========================================
+# Core Infrastructure & Lifecycle
+# ==========================================
 from core.container import container
 from database.connection import db_manager
 from core.startup import ApplicationStartup
 from core.shutdown import ApplicationShutdown
 
-
+# ==========================================
+# Middleware & Exceptions
+# ==========================================
 from api.middleware.request_id import RequestIDMiddleware
 from api.middleware.logging import RequestLoggingMiddleware
 from api.middleware.exception_handler import register_exception_handlers
 
+# ==========================================
+# Routers
+# ==========================================
 from api.routers import health
 from api.routers import documents
 from api.routers import chat
@@ -24,24 +31,22 @@ logger = logging.getLogger(__name__)
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(fastapi_app: FastAPI):
     """
     Manages the global application lifecycle.
-    Bootstraps all heavy singletons before accepting HTTP traffic and 
-    cleans up database connection pools during shutdown.
     """
-    # 1. Start Up
+   
     logger.info("Initiating Application Lifespan Startup...")
     startup_coordinator = ApplicationStartup(container, db_manager)
     startup_coordinator.initialize()
     
-    app.state.container = container
+    fastapi_app.state.container = container
     
     logger.info("Application is ready to receive traffic.")
     
     yield  
 
-   
+  
     logger.info("Initiating Application Lifespan Shutdown...")
     shutdown_coordinator = ApplicationShutdown(db_manager)
     shutdown_coordinator.shutdown()
@@ -65,11 +70,11 @@ def create_app() -> FastAPI:
         ]
     )
 
-   
+  
     app.add_middleware(RequestLoggingMiddleware)
     app.add_middleware(RequestIDMiddleware)
 
-
+   
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -77,7 +82,6 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-
 
     register_exception_handlers(app)
 
@@ -88,3 +92,6 @@ def create_app() -> FastAPI:
     app.include_router(memory.router)
 
     return app
+
+
+app = create_app()
