@@ -1,6 +1,7 @@
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # ==========================================
 # Core Infrastructure & Lifecycle
@@ -64,7 +65,25 @@ def create_app() -> FastAPI:
         title="Self-Healing RAG Platform",
         description="Enterprise-grade RAG system with autonomous hallucination detection and self-healing.",
         version="1.0.0",
-        lifespan=lifespan
+        lifespan=lifespan,
+        # Force Swagger UI to explicitly communicate with the live secure origin
+        servers=[
+            {
+                "url": "https://self-corrective-rag-ciwm.onrender.com",
+                "description": "Production Environment"
+            }
+        ]
+    )
+
+    # ---------------------------------------------------------
+    # 0. Register CORS Middleware
+    # ---------------------------------------------------------
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
     )
 
     # ---------------------------------------------------------
