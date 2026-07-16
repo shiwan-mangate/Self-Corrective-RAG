@@ -1,0 +1,23 @@
+# Git
+.git
+.gitignore
+
+# Local Environment & Secrets
+.env
+.venv
+env
+venv
+ENV
+
+# Python Caches & Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Docker Files
+Dockerfile
+.dockerignore

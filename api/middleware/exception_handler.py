@@ -1,3 +1,4 @@
+## api/middleware/exception_handler.py
 import logging
 from typing import Any, Dict, Optional
 

@@ -1,3 +1,4 @@
+# generation/pipeline.py
 import logging
 
 from generation.models import GenerationRequest, GenerationResponse

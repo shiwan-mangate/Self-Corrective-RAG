@@ -1,3 +1,4 @@
+# retrieval/pipeline.py
 import logging
 from retrieval.models import SearchQuery, RetrievalContext, RetrievalStatistics
 from retrieval.analyzers.base import BaseQueryAnalyzer

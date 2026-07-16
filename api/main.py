@@ -1,3 +1,4 @@
+## api/main.py
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
@@ -25,7 +26,7 @@ from api.routers import documents
 from api.routers import chat
 from api.routers import evaluation
 from api.routers import memory
-
+from fastapi.middleware.cors import CORSMiddleware
 logger = logging.getLogger(__name__)
 
 
@@ -67,10 +68,17 @@ def create_app() -> FastAPI:
         lifespan=lifespan
     )
 
+    # Global Cross-Origin Resource Sharing configuration
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],  # Adjust to specific domains in production
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     app.add_middleware(RequestLoggingMiddleware)
     app.add_middleware(RequestIDMiddleware)
-
 
     register_exception_handlers(app)
 
@@ -81,7 +89,5 @@ def create_app() -> FastAPI:
     app.include_router(memory.router)
 
     return app
-
-
 
 app = create_app()
