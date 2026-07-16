@@ -2,25 +2,20 @@ import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 
-# ==========================================
-# Core Infrastructure & Lifecycle
-# ==========================================
+
 from core.container import container
 from database.connection import db_manager
 from core.startup import ApplicationStartup
 from core.shutdown import ApplicationShutdown
 
-# ==========================================
-# Middleware & Exceptions
-# ==========================================
+
 from api.middleware.request_id import RequestIDMiddleware
 from api.middleware.logging import RequestLoggingMiddleware
 from api.middleware.exception_handler import register_exception_handlers
 
-# ==========================================
-# Routers
-# ==========================================
+
 from api.routers import health
 from api.routers import documents
 from api.routers import chat
@@ -35,7 +30,6 @@ async def lifespan(fastapi_app: FastAPI):
     """
     Manages the global application lifecycle.
     """
-   
     logger.info("Initiating Application Lifespan Startup...")
     startup_coordinator = ApplicationStartup(container, db_manager)
     startup_coordinator.initialize()
@@ -46,7 +40,6 @@ async def lifespan(fastapi_app: FastAPI):
     
     yield  
 
-  
     logger.info("Initiating Application Lifespan Shutdown...")
     shutdown_coordinator = ApplicationShutdown(db_manager)
     shutdown_coordinator.shutdown()
@@ -70,20 +63,26 @@ def create_app() -> FastAPI:
         ]
     )
 
-  
+   
     app.add_middleware(RequestLoggingMiddleware)
     app.add_middleware(RequestIDMiddleware)
 
-   
+
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
-        allow_credentials=True,
+        allow_credentials=False,  
         allow_methods=["*"],
         allow_headers=["*"],
     )
 
+   
     register_exception_handlers(app)
+
+  
+    @app.get("/", include_in_schema=False)
+    def read_root():
+        return RedirectResponse(url="/docs")
 
     app.include_router(health.router)
     app.include_router(documents.router)
