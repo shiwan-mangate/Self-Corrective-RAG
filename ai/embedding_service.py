@@ -1,82 +1,59 @@
-import os
 import logging
-import requests
+import torch
 import numpy as np
 from typing import List
+from sentence_transformers import SentenceTransformer
 
 logger = logging.getLogger(__name__)
 
 
 class AIEmbeddingService:
     """
-    Core AI utility for vector generation via Hugging Face API.
-    Replaces local SentenceTransformers to save massive amounts of RAM.
-    Returns native numpy arrays for downstream pgvector efficiency.
+    Core AI utility for vector generation.
+    Maintains a singleton-ready lifecycle to prevent expensive reloading of weights.
+    Returns native numpy arrays for downstream mathematical efficiency.
     """
     def __init__(self, model_name: str = "BAAI/bge-small-en-v1.5", device: str = None):
         self.model_name = model_name
-        
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
 
-        self.dimension = 384 
+        self.model = self._load_model()
+        self.dimension = self.model.get_sentence_embedding_dimension()
         
-       
-        self.api_url = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{self.model_name}"
-        
-      
-        self.hf_token = os.getenv("HF_TOKEN")
-        if not self.hf_token:
-            logger.warning("HF_TOKEN is missing from environment. API calls may be rate-limited.")
+        logger.info(f"Initialized Embedding Model '{self.model_name}' on {self.device} (Dim: {self.dimension})")
 
-        self.headers = {"Authorization": f"Bearer {self.hf_token}"} if self.hf_token else {}
-        
-        logger.info(f"Initialized API-based Embedding Model '{self.model_name}' (Dim: {self.dimension})")
+    def _load_model(self) -> SentenceTransformer:
+        try:
+            return SentenceTransformer(self.model_name, device=self.device)
+        except Exception as e:
+            logger.error(f"Failed to load embedding model '{self.model_name}': {e}")
+            raise RuntimeError(f"Embedding model initialization failed: {e}")
 
     def embed_texts(self, texts: List[str], batch_size: int = 32) -> np.ndarray:
         """
-        Embeds a list of strings via API and guarantees dimension integrity.
+        Embeds a list of strings and guarantees dimension integrity.
         Returns normalized unit vectors as a numpy array.
         """
         if not texts:
+           
             return np.empty((0, self.dimension), dtype=np.float32)
 
-        all_vectors = []
-        
         try:
+            vectors: np.ndarray = self.model.encode(
+                texts,
+                batch_size=batch_size,
+                normalize_embeddings=True,
+                show_progress_bar=False
+            )
             
-            for i in range(0, len(texts), batch_size):
-                batch_texts = texts[i:i + batch_size]
-                
-               
-                response = requests.post(
-                    self.api_url, 
-                    headers=self.headers, 
-                    json={
-                        "inputs": batch_texts, 
-                        "options": {"wait_for_model": True} 
-                    },
-                    timeout=30
-                )
-                
-                if response.status_code != 200:
-                    raise RuntimeError(f"HF API Error ({response.status_code}): {response.text}")
-                    
-                all_vectors.extend(response.json())
-                
+          
+            self._validate_vectors(vectors, expected_count=len(texts))
+            
+            return vectors
+            
         except Exception as e:
-            logger.error(f"API Embedding generation failed: {e}")
-            raise RuntimeError(f"API Embedding generation failed: {e}")
-
-     
-        vectors = np.array(all_vectors, dtype=np.float32)
-        
-        
-        norms = np.linalg.norm(vectors, axis=1, keepdims=True)
-        norms = np.where(norms == 0, 1e-10, norms) 
-        vectors = vectors / norms
-        
-        self._validate_vectors(vectors, expected_count=len(texts))
-        
-        return vectors
+            logger.error(f"Embedding generation failed: {e}")
+            raise RuntimeError(f"Embedding generation failed: {e}")
 
     def _validate_vectors(self, vectors: np.ndarray, expected_count: int) -> None:
         """Ensures the mathematical shape of the output perfectly matches the input."""
