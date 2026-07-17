@@ -1,3 +1,4 @@
+## database/models/vector.py
 import uuid
 from sqlalchemy import Column, String, Text, DateTime
 from sqlalchemy.sql import func

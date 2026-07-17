@@ -1,3 +1,4 @@
+# ingestion/metadata.py
 import hashlib
 import tiktoken
 from langdetect import detect, DetectorFactory

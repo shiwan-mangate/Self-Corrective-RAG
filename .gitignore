@@ -1,38 +1,53 @@
-# =========================
-# Security & Environments
-# =========================
-.env
-.env.*
+# Environments
 venv/
 env/
 .venv/
+env.bak/
+venv.bak/
 
-# =========================
-# Python Cache
-# =========================
+# Secrets & Configuration
+.env
+.env.*
+*.pem
+*.key
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-*.pyo
-*.pyd
+*.so
 
-# =========================
-# IDEs and Editors
-# =========================
-.vscode/
-.idea/
-*.swp
-*.swo
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# =========================
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
 # Logs and Databases
-# =========================
 *.log
 *.sqlite3
 
-# =========================
-# Optional: Benchmark Results
-# =========================
-# Uncomment the line below if you DO NOT want your JSON results pushed to GitHub.
-# If you want to show off your results on GitHub, leave it commented out!
-# benchmarks/results/*.json
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/

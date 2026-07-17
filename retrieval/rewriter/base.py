@@ -1,3 +1,4 @@
+# retrieval/rewriter/base.py
 from abc import ABC, abstractmethod
 from typing import List, Dict
 from retrieval.models import AnalyzedQuery

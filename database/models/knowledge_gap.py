@@ -1,3 +1,4 @@
+## database/models/knowledge_gap.py
 from sqlalchemy import Column, BigInteger, String, Integer, Boolean, DateTime
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.sql import func

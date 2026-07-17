@@ -1,23 +1,27 @@
-# Git
-.git
+# Security: Never copy secrets
+.env
+*.env
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Git repository data
+.git/
 .gitignore
 
-# Local Environment & Secrets
-.env
-.venv
-env
-venv
-ENV
+# IDEs and environments
+.vscode/
+.idea/
+.DS_Store
 
-# Python Caches & Bytecode
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Docker Files
-Dockerfile
-.dockerignore
+# Temporary data / logs
+*.log
+tmp/
+temp/

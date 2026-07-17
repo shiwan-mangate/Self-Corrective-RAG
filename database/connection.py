@@ -1,3 +1,4 @@
+# database/connection.py
 import logging
 from urllib.parse import urlparse
 from typing import Generator

@@ -1,3 +1,4 @@
+# retrieval/rewriter/prompts.py
 QUERY_REWRITE_SYSTEM_PROMPT = """You are an expert search query optimization assistant for an enterprise knowledge base.
 Your task is to take a user's question and a brief conversation history, and rewrite the user's question into a standalone, highly effective search query.
 
