@@ -1667,7 +1667,289 @@ This modular architecture makes the framework highly maintainable, scalable, and
 
 ---
 
-> **Next:** The following section explains how to set up the project locally, configure environment variables, deploy with Docker, and run the Self-Corrective RAG API in a production-ready environment.
+# 🛠️ Getting Started
+
+This section provides everything you need to set up and run the **Self-Corrective RAG** framework locally or deploy it to the cloud.
+
+Whether you're a developer exploring the architecture, a researcher evaluating the framework, or a contributor extending its capabilities, these instructions will help you get the project up and running quickly.
+
+---
+
+# 📋 Prerequisites
+
+Before running the project, ensure the following software is installed on your machine.
+
+| Software | Recommended Version |
+|-----------|---------------------|
+| Python | 3.11 or later |
+| Git | Latest |
+| Docker Desktop | Latest |
+| PostgreSQL | 16+ (or Neon PostgreSQL) |
+| pip | Latest |
+| Virtual Environment | venv |
+
+---
+
+# 📥 Clone the Repository
+
+Clone the repository from GitHub and navigate into the project directory.
+
+```bash
+git clone https://github.com/shiwan-mangate/Self-Corrective-RAG.git
+
+cd Self-Corrective-RAG
+```
+
+---
+
+# 🐍 Create a Virtual Environment
+
+Create an isolated Python environment.
+
+### Windows
+
+```bash
+python -m venv venv
+
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+---
+
+# 📦 Install Dependencies
+
+Upgrade pip and install all required packages.
+
+```bash
+python -m pip install --upgrade pip
+
+pip install -r requirements.txt
+```
+
+This installs all required libraries including:
+
+- FastAPI
+- LangChain
+- LangGraph
+- Groq SDK
+- Hugging Face Embeddings
+- SQLAlchemy
+- Alembic
+- pgvector
+- PostgreSQL Driver
+- RAGAS
+- Uvicorn
+- Other supporting dependencies
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env` file in the project root.
+
+```text
+Self-Corrective-RAG/
+│
+├── .env
+├── README.md
+├── requirements.txt
+└── ...
+```
+
+Add the following configuration.
+
+```env
+########################################
+# GROQ
+########################################
+
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=llama-3.3-70b-versatile
+
+########################################
+# HUGGING FACE
+########################################
+
+HF_TOKEN=your_huggingface_token
+
+########################################
+# VECTOR DATABASE
+########################################
+
+NEON_VECTOR_DATABASE_URL=your_postgresql_connection_string
+
+########################################
+# WEB SEARCH
+########################################
+
+TAVILY_API_KEY=your_tavily_api_key
+```
+
+> **Note:** Never commit your `.env` file or API keys to GitHub. Add `.env` to your `.gitignore` file to keep sensitive credentials secure.
+
+---
+
+# ▶️ Running the API
+
+Start the FastAPI application locally using Uvicorn.
+
+```bash
+uvicorn api.main:app --reload
+```
+
+Once the server starts successfully, the application will be available at:
+
+| Service | URL |
+|----------|-----|
+| API | http://127.0.0.1:8000 |
+| Swagger UI | http://127.0.0.1:8000/docs |
+| ReDoc | http://127.0.0.1:8000/redoc |
+
+---
+
+# 🐳 Docker Deployment
+
+The project includes a production-ready Docker configuration for containerized deployment.
+
+### Step 1 — Build the Docker Image
+
+```bash
+docker build -t self-corrective-rag .
+```
+
+---
+
+### Step 2 — Run the Container
+
+```bash
+docker run -d \
+-p 10000:10000 \
+--env-file .env \
+self-corrective-rag
+```
+
+---
+
+### Docker Container
+
+The application runs using:
+
+```dockerfile
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "10000"]
+```
+
+After deployment, the API will be available at:
+
+```
+http://localhost:10000
+```
+
+Swagger UI:
+
+```
+http://localhost:10000/docs
+```
+
+---
+
+# ☁️ Render Deployment
+
+The framework is deployed on **Render** using Docker for production.
+
+### Deployment Workflow
+
+```text
+GitHub Repository
+        │
+        ▼
+Render
+        │
+        ▼
+Docker Build
+        │
+        ▼
+Container Deployment
+        │
+        ▼
+FastAPI Application
+```
+
+### Deployment Steps
+
+1. Push the latest code to GitHub.
+2. Create a new **Web Service** on Render.
+3. Connect the GitHub repository.
+4. Select **Docker** as the deployment environment.
+5. Configure the required environment variables.
+6. Deploy the service.
+
+---
+
+### Required Environment Variables
+
+Configure the following variables in the Render dashboard.
+
+| Variable | Description |
+|----------|-------------|
+| `GROQ_API_KEY` | Groq API Key |
+| `GROQ_MODEL` | Groq model name |
+| `HF_TOKEN` | Hugging Face access token |
+| `NEON_VECTOR_DATABASE_URL` | PostgreSQL/pgvector connection string |
+| `TAVILY_API_KEY` | Tavily API Key |
+
+---
+
+### Live Deployment
+
+The production deployment is available at:
+
+**API**
+
+```
+https://self-healing-rag-api-v3.onrender.com
+```
+
+**Swagger Documentation**
+
+```
+https://self-healing-rag-api-v3.onrender.com/docs
+```
+
+---
+
+# ✅ Verify the Installation
+
+Once the server is running, verify the setup by checking the health endpoint.
+
+```bash
+GET /health
+```
+
+A successful response indicates that:
+
+- FastAPI is running
+- Dependency injection is initialized
+- Database connection is established
+- Vector database is accessible
+- Application startup completed successfully
+
+---
+
+# 🚀 What's Next?
+
+Congratulations! 🎉
+
+You now have a fully configured **Self-Corrective RAG** environment ready for development, experimentation, and production deployment.
+
+The next section covers the available REST API endpoints, request/response formats, benchmark results, and performance evaluation of the framework.
 
 
 
