@@ -2254,6 +2254,351 @@ The evaluation results demonstrate that **Self-Corrective RAG** consistently out
 By integrating **LangGraph orchestration**, **RAGAS evaluation**, **autonomous self-healing**, **conversation memory**, and **continuous knowledge improvement**, the framework delivers a more reliable and production-ready Retrieval-Augmented Generation system capable of producing trustworthy AI responses in real-world scenarios.
 
 ---
+# 🧪 Testing & Roadmap
 
+Building a production-ready Retrieval-Augmented Generation system requires more than high-quality responses—it also demands comprehensive testing, reproducible evaluation, and a clear strategy for future improvements.
+
+The Self-Corrective RAG framework follows a **layered testing approach**, ensuring that every component, pipeline, and workflow behaves correctly both in isolation and as part of the complete system.
+
+In addition to automated testing, the project includes a forward-looking roadmap that outlines planned enhancements for scalability, performance, and enterprise adoption.
+
+---
+
+# 🧪 Testing Strategy
+
+The project adopts a **three-layer testing architecture** to validate the system at different levels of abstraction.
+
+```
+                End-to-End Tests
+                      ▲
+                      │
+              Integration Tests
+                      ▲
+                      │
+                 Unit Tests
+```
+
+Each layer targets a different aspect of the framework, providing confidence that individual components work correctly and that the complete LangGraph workflow behaves as expected.
+
+---
+
+# 🏗️ Testing Architecture
+
+| Test Layer | Purpose |
+|------------|---------|
+| **Unit Tests** | Validate individual functions, services, repositories, and utility modules in isolation. |
+| **Integration Tests** | Verify interactions between multiple components such as retrieval, generation, evaluation, and database services. |
+| **End-to-End Tests** | Execute the complete API workflow to ensure the entire Self-Corrective RAG pipeline functions correctly. |
+
+This layered approach enables rapid debugging while maintaining confidence in the overall system.
+
+---
+
+# 🔹 Unit Tests
+
+Unit tests focus on validating the smallest functional units of the project.
+
+These tests ensure that individual components behave correctly without relying on external services.
+
+### Components Covered
+
+- Utility functions
+- Configuration management
+- Database repositories
+- Embedding services
+- Prompt builders
+- Query rewriting
+- Evaluation utilities
+- Memory management
+- Self-healing strategies
+
+### Goal
+
+- Verify business logic
+- Detect regressions early
+- Enable safe refactoring
+- Maintain high code quality
+
+---
+
+# 🔹 Integration Tests
+
+Integration tests verify that multiple components interact correctly with one another.
+
+Unlike unit tests, these tests validate complete subsystems while still isolating the external API boundary.
+
+### Components Covered
+
+- Document ingestion pipeline
+- Retrieval pipeline
+- Generation pipeline
+- Evaluation pipeline
+- Self-Healing pipeline
+- PostgreSQL integration
+- Vector database integration
+- LangGraph workflow execution
+
+### Goal
+
+- Validate subsystem interactions
+- Verify dependency injection
+- Test database operations
+- Ensure pipeline compatibility
+
+---
+
+# 🔹 End-to-End Tests
+
+End-to-End (E2E) tests simulate real user interactions with the deployed API.
+
+Each request traverses the complete LangGraph workflow exactly as it would in production.
+
+### Complete Workflow
+
+```
+Client Request
+      │
+      ▼
+FastAPI
+      │
+      ▼
+Input Preparation
+      │
+      ▼
+Memory
+      │
+      ▼
+Retrieval
+      │
+      ▼
+Generation
+      │
+      ▼
+Evaluation
+      │
+      ▼
+Self-Healing
+      │
+      ▼
+Response
+```
+
+### Goal
+
+- Validate complete user workflows
+- Test API endpoints
+- Verify autonomous recovery
+- Ensure production readiness
+
+---
+
+# ▶️ Running the Test Suite
+
+The project uses **pytest** as the primary testing framework.
+
+### Run All Tests
+
+```bash
+pytest
+```
+
+---
+
+### Run Unit Tests
+
+```bash
+pytest tests/unit
+```
+
+---
+
+### Run Integration Tests
+
+```bash
+pytest tests/integration
+```
+
+---
+
+### Run End-to-End Tests
+
+```bash
+pytest tests/e2e
+```
+
+---
+
+### Run Tests with Coverage
+
+```bash
+pytest --cov=. --cov-report=term-missing
+```
+
+---
+
+# 📂 Test Structure
+
+```text
+tests/
+│
+├── unit/
+│   ├── test_ingestion.py
+│   ├── test_retrieval.py
+│   ├── test_generation.py
+│   ├── test_memory.py
+│   ├── test_evaluation.py
+│   └── ...
+│
+├── integration/
+│   ├── test_chat_flow.py
+│   ├── test_database.py
+│   ├── test_pipeline.py
+│   └── ...
+│
+└── e2e/
+    ├── test_query_flow.py
+    ├── test_self_healing.py
+    ├── test_api.py
+    └── ...
+```
+
+---
+
+# ✅ Quality Assurance
+
+The testing strategy ensures that the framework remains reliable as new features are introduced.
+
+Each release is validated through:
+
+- Automated unit testing
+- Integration testing
+- End-to-End workflow validation
+- API verification
+- Retrieval quality evaluation
+- Self-healing verification
+- Benchmark regression testing
+
+Together, these tests provide confidence that every subsystem continues to operate correctly while preserving the overall reliability of the architecture.
+
+---
+
+# 🛣️ Future Roadmap
+
+Although the current framework already delivers a production-ready evaluation-driven RAG system, several enhancements are planned to further improve performance, scalability, and enterprise capabilities.
+
+---
+
+## 🌊 Streaming Responses
+
+Enable real-time token streaming from the language model to improve user experience and reduce perceived latency.
+
+**Planned Benefits**
+
+- Faster response delivery
+- Better interactive experience
+- Progressive answer generation
+
+---
+
+## 🔀 Hybrid Retrieval
+
+Combine semantic vector search with traditional keyword-based retrieval techniques.
+
+**Planned Benefits**
+
+- Improved recall
+- Better handling of exact keyword queries
+- Enhanced search robustness
+
+---
+
+## ⚡ Redis Cache
+
+Introduce Redis as a caching layer for frequently accessed embeddings, retrieval results, and repeated queries.
+
+**Planned Benefits**
+
+- Reduced latency
+- Lower API costs
+- Faster repeated requests
+- Improved scalability
+
+---
+
+## 🖼️ Multi-modal RAG
+
+Extend the ingestion and retrieval pipeline to support additional data modalities beyond text.
+
+**Planned Capabilities**
+
+- Images
+- PDFs with diagrams
+- Tables
+- Charts
+- Presentation files
+- Mixed-content documents
+
+---
+
+## 🔌 MCP Integration
+
+Integrate the **Model Context Protocol (MCP)** to connect the framework with external tools, data sources, and enterprise systems through a standardized interface.
+
+**Planned Benefits**
+
+- Tool interoperability
+- External knowledge integration
+- Enhanced agent capabilities
+- Standardized context exchange
+
+---
+
+## 📈 Enterprise Monitoring
+
+Introduce comprehensive observability and monitoring for production deployments.
+
+**Planned Features**
+
+- Workflow tracing
+- Performance dashboards
+- Error analytics
+- Health monitoring
+- Token usage analytics
+- System metrics
+
+---
+
+## ⚙️ Distributed Workers
+
+Scale document ingestion, evaluation, and background processing using distributed task execution.
+
+**Planned Benefits**
+
+- Parallel document ingestion
+- Asynchronous evaluations
+- Improved throughput
+- Horizontal scalability
+- Support for large enterprise workloads
+
+---
+
+# 🎯 Vision
+
+The long-term vision of **Self-Corrective RAG** is to evolve beyond a traditional Retrieval-Augmented Generation framework into a fully autonomous, self-improving AI platform.
+
+Future development will continue to focus on:
+
+- Higher retrieval accuracy
+- Lower hallucination rates
+- Faster response times
+- Scalable enterprise deployments
+- Continuous knowledge evolution
+- Intelligent workflow automation
+
+By combining robust testing with a clear development roadmap, the project is designed to remain maintainable, extensible, and production-ready as new AI capabilities continue to emerge.
+
+---
+
+> **Next:** The final section includes the project license, acknowledgements, and author information.
 
 
