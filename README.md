@@ -391,4 +391,507 @@ The architecture follows several software engineering principles that make it su
 
 > **In the following section, we dive into each subsystem individually, exploring how the Ingestion, Memory, Retrieval, Generation, Evaluation, Self-Healing, and LangGraph pipelines work internally.**
 
+# ⚙️ Pipeline Architecture
+
+The Self-Corrective RAG framework is composed of multiple independent pipelines, each responsible for a single stage of the Retrieval-Augmented Generation lifecycle. Every pipeline is designed as an isolated, reusable module that can be developed, tested, and maintained independently while seamlessly integrating through the LangGraph orchestration layer.
+
+Each pipeline follows a consistent design philosophy:
+
+- **Single Responsibility Principle** – Each pipeline focuses on one core task.
+- **Modular Components** – Internal stages are loosely coupled and independently testable.
+- **Pipeline Orchestration** – Components execute sequentially to produce a structured output.
+- **Production Ready** – Built with dependency injection, structured logging, and extensibility in mind.
+
+The following sections describe the internal architecture of each pipeline.
+
+---
+
+# 📥 Ingestion Pipeline
+
+<p align="center">
+<img src="images/ingestion.png" width="100%">
+</p>
+
+The **Ingestion Pipeline** is the foundation of the entire Self-Corrective RAG system. Its primary responsibility is to transform raw documents into high-quality vector representations that can be efficiently searched during retrieval.
+
+Rather than simply splitting documents into chunks, the pipeline performs a complete preprocessing workflow including parsing, cleaning, metadata enrichment, semantic chunking, embedding generation, and vector storage.
+
+By ensuring every document is standardized before indexing, the retrieval subsystem receives cleaner and more meaningful contextual information.
+
+---
+
+## 🎯 Purpose
+
+Convert raw knowledge sources into semantically searchable vector embeddings that can later be retrieved by the Retrieval Pipeline.
+
+---
+
+## 🛠 Responsibilities
+
+- Load documents from multiple sources
+- Parse heterogeneous document formats
+- Clean and normalize document content
+- Extract and enrich metadata
+- Split documents into semantic chunks
+- Generate dense vector embeddings
+- Persist vectors into PostgreSQL (pgvector)
+
+---
+
+## 📥 Inputs
+
+The ingestion pipeline accepts knowledge from multiple sources, including:
+
+- PDF documents
+- Microsoft Word files
+- Plain text files
+- Markdown files
+- Web pages
+- Existing datasets
+- Enterprise knowledge bases
+
+---
+
+## 📤 Outputs
+
+After processing, the pipeline produces:
+
+- Cleaned documents
+- Metadata-enriched chunks
+- High-quality vector embeddings
+- Persistent vector records
+- Search-ready knowledge base
+
+---
+
+## 🔄 Internal Workflow
+
+```text
+Raw Documents
+      │
+      ▼
+Loader Factory
+      │
+      ▼
+Document Parser
+      │
+      ▼
+Document Cleaner
+      │
+      ▼
+Metadata Pipeline
+      │
+      ▼
+Chunking Pipeline
+      │
+      ▼
+Embedding Pipeline
+      │
+      ▼
+Vector Service
+      │
+      ▼
+PostgreSQL + pgvector
+```
+
+---
+
+## 🧩 Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Loader Factory** | Selects the appropriate document loader based on file type |
+| **Document Parser** | Extracts readable content from raw files |
+| **Document Cleaner** | Removes noise, formatting artifacts, and invalid text |
+| **Metadata Pipeline** | Enriches documents with structured metadata for filtering and retrieval |
+| **Chunking Pipeline** | Splits documents into semantically meaningful chunks |
+| **Embedding Pipeline** | Converts text chunks into dense vector representations |
+| **Vector Service** | Stores embeddings and metadata inside PostgreSQL using pgvector |
+
+---
+
+## 💡 Why It Matters
+
+The quality of retrieval is directly determined by the quality of document ingestion.
+
+A well-designed ingestion pipeline ensures:
+
+- Higher retrieval accuracy
+- Better semantic matching
+- Reduced retrieval noise
+- Improved context quality
+- Lower hallucination rates during generation
+
+In short, **better ingestion leads to better retrieval, which ultimately leads to more reliable AI responses.**
+
+---
+
+# 🧠 Memory Pipeline
+
+<p align="center">
+<img src="images/memory.png" width="100%">
+</p>
+
+The **Memory Pipeline** enables the system to maintain conversational continuity across multiple interactions. Instead of treating every query as an isolated request, it preserves session history, retrieves relevant past conversations, manages long-term summaries, and constructs contextual memory for downstream pipelines.
+
+This allows the LLM to understand follow-up questions, resolve references, and generate responses that remain consistent throughout an ongoing conversation.
+
+---
+
+## 🎯 Purpose
+
+Provide contextual memory by maintaining conversation history, session state, and summarized interactions across multiple user requests.
+
+---
+
+## 🛠 Responsibilities
+
+- Create and manage user sessions
+- Retrieve conversation history
+- Load long-term summaries
+- Generate updated summaries when required
+- Assemble memory context
+- Persist new conversation turns
+- Maintain session metadata
+
+---
+
+## 📥 Inputs
+
+The Memory Pipeline receives:
+
+- Current user query
+- Session identifier
+- Previous conversation history
+- Existing conversation summaries
+- Runtime execution metadata
+
+---
+
+## 📤 Outputs
+
+The pipeline produces:
+
+- Structured conversation context
+- Conversation history
+- Long-term summaries
+- Session metadata
+- Memory package for Retrieval Pipeline
+- Updated session state
+
+---
+
+## 🔄 Internal Workflow
+
+```text
+User Query
+      │
+      ▼
+Session Loader
+      │
+      ▼
+Conversation History
+      │
+      ▼
+Summary Retrieval
+      │
+      ▼
+Summary Evaluation
+      │
+      ▼
+Summary Generation
+      │
+      ▼
+Memory Context Builder
+      │
+      ▼
+Memory Response
+      │
+      ▼
+Conversation Persistence
+```
+
+---
+
+## 🧩 Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Session Manager** | Creates or retrieves active conversation sessions |
+| **Conversation Repository** | Loads previous dialogue history |
+| **Summary Repository** | Retrieves long-term summaries for efficient context compression |
+| **Summary Generator** | Produces updated summaries when conversations grow beyond token limits |
+| **Memory Builder** | Combines history, summaries, and metadata into structured memory |
+| **Persistence Layer** | Stores new conversation turns and updates session activity |
+
+---
+
+## 💡 Why It Matters
+
+Large Language Models do not inherently remember previous interactions.
+
+Without a memory layer:
+
+- Follow-up questions lose context.
+- Pronouns and references become ambiguous.
+- Multi-turn conversations degrade quickly.
+- Long discussions exceed token limits.
+
+The Memory Pipeline solves these challenges by providing persistent conversational awareness while keeping prompts efficient through intelligent summarization.
+
+This enables the system to deliver responses that are:
+
+- Context-aware
+- Consistent across conversations
+- More personalized
+- Token-efficient
+- Better suited for long-running enterprise applications
+
+---
+
+# 🔍 Retrieval Pipeline
+
+<p align="center">
+<img src="images/retrival.png" width="100%">
+</p>
+
+The **Retrieval Pipeline** is the intelligence layer responsible for finding the most relevant knowledge required to answer a user's question. Rather than performing a simple vector similarity search, it analyzes the query, improves ambiguous questions, retrieves candidate documents, filters noisy results, reranks them by relevance, and constructs an optimized context package for the language model.
+
+Its objective is to maximize **Context Precision** and **Context Recall**, ensuring that the Generation Pipeline receives only the most relevant and trustworthy information.
+
+---
+
+## 🎯 Purpose
+
+Retrieve the most relevant contextual information from the knowledge base while minimizing irrelevant, duplicate, or low-quality results before response generation.
+
+---
+
+## 🛠 Responsibilities
+
+- Analyze user intent
+- Rewrite ambiguous queries
+- Perform semantic vector search
+- Retrieve candidate documents
+- Filter irrelevant chunks
+- Rerank retrieved results
+- Build optimized context packages
+- Collect retrieval statistics and metadata
+
+---
+
+## 📥 Inputs
+
+The Retrieval Pipeline receives:
+
+- User query
+- Conversation memory
+- Session context
+- Search filters (optional)
+- Runtime metadata
+
+---
+
+## 📤 Outputs
+
+After execution, the pipeline produces:
+
+- Retrieved document chunks
+- Ranked contextual information
+- Optimized context package
+- Source metadata
+- Retrieval statistics
+- Retrieval confidence information
+
+---
+
+## 🔄 Internal Workflow
+
+```text
+User Query
+      │
+      ▼
+Query Analyzer
+      │
+      ▼
+Query Rewriter
+      │
+      ▼
+Semantic Vector Search
+      │
+      ▼
+Document Filtering
+      │
+      ▼
+Relevance Reranking
+      │
+      ▼
+Context Builder
+      │
+      ▼
+Retrieval Context
+```
+
+---
+
+## 🧩 Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Query Analyzer** | Understands user intent, identifies ambiguity, and prepares search parameters |
+| **Query Rewriter** | Improves poorly structured or ambiguous queries for better retrieval quality |
+| **Retrieval Engine** | Performs semantic similarity search over the vector database |
+| **Filtering Module** | Removes duplicate, noisy, or low-confidence chunks |
+| **Reranker** | Reorders retrieved documents according to semantic relevance |
+| **Context Builder** | Combines the highest-quality chunks into a structured prompt-ready context |
+| **Retrieval Metadata** | Records search statistics, confidence, and execution metrics |
+
+---
+
+## 💡 Why It Matters
+
+Even the most advanced LLM cannot produce reliable answers without reliable context.
+
+Poor retrieval results in:
+
+- Missing information
+- Irrelevant documents
+- Context pollution
+- Hallucinations
+- Low-confidence responses
+
+The Retrieval Pipeline improves answer quality by ensuring that only the most relevant and information-rich documents are passed to the language model.
+
+This directly contributes to higher:
+
+- Context Precision
+- Context Recall
+- Answer Relevancy
+- Faithfulness
+
+---
+
+# ✨ Generation Pipeline
+
+<p align="center">
+<img src="images/generation.png" width="100%">
+</p>
+
+The **Generation Pipeline** transforms the retrieved context into a coherent, grounded, and human-readable response. Instead of allowing the language model to freely generate text, the pipeline constructs carefully engineered prompts, enforces context grounding, extracts citations, and formats the final response with supporting evidence.
+
+Its goal is to ensure that every answer remains faithful to the retrieved knowledge while maintaining clarity, completeness, and transparency.
+
+---
+
+## 🎯 Purpose
+
+Generate context-grounded responses that are accurate, explainable, and supported by citations from retrieved knowledge.
+
+---
+
+## 🛠 Responsibilities
+
+- Construct structured prompts
+- Provide retrieved context to the LLM
+- Generate grounded responses
+- Extract supporting citations
+- Format final responses
+- Collect generation metadata
+- Preserve traceability between answers and source documents
+
+---
+
+## 📥 Inputs
+
+The Generation Pipeline receives:
+
+- User query
+- Conversation memory
+- Retrieval context
+- Ranked document chunks
+- Source metadata
+- Runtime configuration
+
+---
+
+## 📤 Outputs
+
+The pipeline produces:
+
+- Final generated response
+- Source citations
+- Citation mapping
+- Formatted answer
+- Generation metadata
+- Execution statistics
+
+---
+
+## 🔄 Internal Workflow
+
+```text
+Retrieval Context
+        │
+        ▼
+Prompt Builder
+        │
+        ▼
+Prompt Package
+        │
+        ▼
+Groq LLM
+        │
+        ▼
+Generated Response
+        │
+        ▼
+Citation Extraction
+        │
+        ▼
+Citation Formatter
+        │
+        ▼
+Response Builder
+        │
+        ▼
+Final Response
+```
+
+---
+
+## 🧩 Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Prompt Builder** | Combines the user query, memory, and retrieved context into a structured prompt |
+| **LLM Generator** | Produces responses using the Groq-hosted Large Language Model |
+| **Citation Extractor** | Maps generated statements back to supporting document chunks |
+| **Citation Formatter** | Formats citations into a user-friendly structure |
+| **Response Builder** | Constructs the final response object with answer, citations, and metadata |
+| **Generation Metadata** | Records execution latency, token usage, and generation statistics |
+
+---
+
+## 💡 Why It Matters
+
+The quality of an AI system is determined not only by what it says, but by **whether it can justify what it says**.
+
+Traditional LLMs often generate fluent yet unsupported responses.
+
+The Generation Pipeline addresses this by enforcing:
+
+- Context-grounded generation
+- Evidence-backed responses
+- Citation transparency
+- Consistent response formatting
+- High factual accuracy
+
+Rather than producing answers based solely on model knowledge, the pipeline ensures that every response is grounded in retrieved evidence, making it significantly more reliable for production and enterprise applications.
+
+---
+
+
+
+
+
 
