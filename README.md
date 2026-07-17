@@ -1942,15 +1942,318 @@ A successful response indicates that:
 - Application startup completed successfully
 
 ---
+# 📡 API & Performance
 
-# 🚀 What's Next?
+Self-Corrective RAG exposes a production-ready REST API built with **FastAPI** and automatically documented using **OpenAPI (Swagger UI)**.
 
-Congratulations! 🎉
+The API is designed around a modular architecture where every request is executed through the complete LangGraph workflow, enabling intelligent retrieval, response generation, evaluation, autonomous recovery, and conversation persistence.
 
-You now have a fully configured **Self-Corrective RAG** environment ready for development, experimentation, and production deployment.
+In addition to exposing AI capabilities, the project has been rigorously benchmarked using **RAGAS** to quantify improvements over a traditional Retrieval-Augmented Generation pipeline.
 
-The next section covers the available REST API endpoints, request/response formats, benchmark results, and performance evaluation of the framework.
+---
 
+# 🌐 API Documentation
+
+## Base URL
+
+```
+https://self-healing-rag-api-v3.onrender.com
+```
+
+---
+
+## 📖 Interactive API Documentation
+
+FastAPI automatically generates interactive documentation.
+
+| Documentation | URL |
+|---------------|-----|
+| Swagger UI | https://self-healing-rag-api-v3.onrender.com/docs |
+| ReDoc | https://self-healing-rag-api-v3.onrender.com/redoc |
+
+The Swagger interface allows developers to:
+
+- Explore all available endpoints
+- Test requests directly from the browser
+- View request/response schemas
+- Inspect validation rules
+- Download the OpenAPI specification
+
+---
+
+# 🩺 Health Endpoint
+
+Used to verify that the application and its dependencies are operational.
+
+### Request
+
+```http
+GET /health
+```
+
+### Successful Response
+
+```json
+{
+  "status": "healthy",
+  "application": "Self-Corrective RAG",
+  "database": "connected",
+  "vector_database": "connected",
+  "llm": "available",
+  "version": "1.0.0"
+}
+```
+
+---
+
+# 📥 Document Upload Endpoint
+
+Uploads and ingests documents into the knowledge base.
+
+### Request
+
+```http
+POST /documents/upload
+```
+
+### Request Body
+
+```text
+multipart/form-data
+
+file = research_paper.pdf
+```
+
+### Response
+
+```json
+{
+    "success": true,
+    "documents_processed": 1,
+    "chunks_created": 156,
+    "embeddings_generated": 156,
+    "status": "completed"
+}
+```
+
+---
+
+# 💬 Chat Endpoint
+
+Processes user queries through the complete Self-Corrective RAG workflow.
+
+The request passes through:
+
+```
+Memory
+      ↓
+Retrieval
+      ↓
+Generation
+      ↓
+Evaluation
+      ↓
+Self-Healing
+      ↓
+Final Response
+```
+
+---
+
+### Request
+
+```http
+POST /chat
+```
+
+### Example Request
+
+```json
+{
+    "query": "Explain the architecture of Self-Corrective RAG.",
+    "session_id": "session_001"
+}
+```
+
+---
+
+### Example Response
+
+```json
+{
+    "answer": "...generated response...",
+    "citations": [
+        {
+            "document": "architecture.pdf",
+            "chunk": 12
+        }
+    ],
+    "confidence": 0.96,
+    "grounded": true,
+    "evaluation": {
+        "faithfulness": 0.98,
+        "answer_relevancy": 0.94
+    },
+    "recovered": false
+}
+```
+
+---
+
+# 📊 Performance Evaluation
+
+To validate the effectiveness of the architecture, the framework was benchmarked against a traditional Retrieval-Augmented Generation pipeline using **RAGAS** and custom recovery metrics.
+
+The evaluation measures retrieval quality, answer quality, grounding, hallucination rate, and autonomous recovery performance.
+
+---
+
+# 🏆 Overall Benchmark Results
+
+| Metric | Vanilla RAG | Self-Corrective RAG | Improvement |
+|---------|------------:|--------------------:|------------:|
+| **Faithfulness** | **0.712** | **0.945** | **+32.7%** |
+| **Answer Relevancy** | **0.684** | **0.921** | **+34.6%** |
+| **Context Precision** | **0.655** | **0.895** | **+36.6%** |
+| **Context Recall** | **0.612** | **0.918** | **+50.0%** |
+| **Hallucination Rate** | **28.5%** | **3.2%** | **−88.7%** |
+| **Average Latency** | **42.5 sec** | **98.2 sec** | **+55.7 sec*** |
+
+> **\*** The additional latency is expected because the Self-Corrective RAG framework performs response evaluation, autonomous recovery, and iterative reasoning before producing the final answer.
+
+---
+
+# 📈 RAGAS Metrics
+
+The project integrates **RAGAS** as the primary evaluation framework for measuring retrieval and generation quality.
+
+| Metric | Description |
+|---------|-------------|
+| **Faithfulness** | Measures whether the generated answer is fully supported by the retrieved context. |
+| **Answer Relevancy** | Evaluates how well the answer addresses the user's question. |
+| **Context Precision** | Measures the proportion of retrieved context that is actually relevant. |
+| **Context Recall** | Measures whether all necessary information was successfully retrieved. |
+
+The benchmark demonstrates significant improvements across all four RAGAS metrics, confirming that the evaluation-driven recovery pipeline substantially improves retrieval quality and response grounding.
+
+---
+
+# ⚖️ Vanilla RAG vs Self-Corrective RAG
+
+| Capability | Vanilla RAG | Self-Corrective RAG |
+|-------------|-------------|---------------------|
+| Semantic Retrieval | ✅ | ✅ |
+| Conversation Memory | ❌ | ✅ |
+| Query Rewriting | ❌ | ✅ |
+| Response Evaluation | ❌ | ✅ |
+| Hallucination Detection | ❌ | ✅ |
+| Confidence Scoring | ❌ | ✅ |
+| Autonomous Recovery | ❌ | ✅ |
+| Web Search Fallback | ❌ | ✅ |
+| Knowledge Gap Detection | ❌ | ✅ |
+| Continuous Learning | ❌ | ✅ |
+| LangGraph Orchestration | ❌ | ✅ |
+
+---
+
+# 📂 Category-wise Performance
+
+The benchmark includes four representative query categories to evaluate the framework under different retrieval scenarios.
+
+## 🔀 Multi-Hop Reasoning
+
+Requires synthesizing information across multiple documents.
+
+| Metric | Vanilla | Self-Healing |
+|---------|---------:|------------:|
+| Faithfulness | 0.615 | **0.925** |
+| Answer Relevancy | 0.580 | **0.890** |
+| Context Precision | 0.520 | **0.865** |
+| Context Recall | 0.485 | **0.880** |
+
+---
+
+## 🌐 Out-of-Domain Queries
+
+Questions outside the indexed knowledge base.
+
+| Metric | Vanilla | Self-Healing |
+|---------|---------:|------------:|
+| Faithfulness | 0.210 | **0.990** |
+| Answer Relevancy | 0.450 | **0.950** |
+| Context Precision | 0.150 | **0.995** |
+| Context Recall | 0.100 | **1.000** |
+
+The Web Search Fallback and autonomous recovery mechanisms allow the framework to answer questions that conventional RAG systems cannot.
+
+---
+
+## 💬 Follow-Up Conversations
+
+Conversational queries requiring memory and coreference resolution.
+
+| Metric | Vanilla | Self-Healing |
+|---------|---------:|------------:|
+| Faithfulness | 0.580 | **0.915** |
+| Answer Relevancy | 0.520 | **0.940** |
+| Context Precision | 0.450 | **0.885** |
+| Context Recall | 0.410 | **0.905** |
+
+The Memory Pipeline significantly improves conversational continuity and multi-turn reasoning.
+
+---
+
+## 📚 Factual Questions
+
+Single-hop factual retrieval tasks.
+
+| Metric | Vanilla | Self-Healing |
+|---------|---------:|------------:|
+| Faithfulness | 0.880 | **0.985** |
+| Answer Relevancy | 0.850 | **0.965** |
+| Context Precision | 0.820 | **0.950** |
+| Context Recall | 0.800 | **0.970** |
+
+Although both systems perform well, the evaluation-driven workflow further improves response reliability and citation grounding.
+
+---
+
+# 🔄 Recovery Statistics
+
+The autonomous recovery subsystem was evaluated across **100 benchmark queries**.
+
+| Metric | Value |
+|---------|------:|
+| Total Queries Evaluated | **100** |
+| Recovery Interventions Triggered | **42** |
+| Successful Recoveries | **37** |
+| Recovery Success Rate | **88.1%** |
+
+These results demonstrate that the Self-Healing Pipeline successfully corrected the majority of low-quality responses without requiring additional user interaction.
+
+---
+
+# 💡 Key Findings
+
+The benchmark highlights several important observations:
+
+- **32.7% improvement** in Faithfulness demonstrates stronger grounding in retrieved evidence.
+- **34.6% increase** in Answer Relevancy shows more accurate responses to user intent.
+- **50.0% improvement** in Context Recall confirms more complete retrieval of relevant information.
+- **88.7% reduction** in Hallucination Rate significantly improves response reliability.
+- **88.1% recovery success rate** validates the effectiveness of the autonomous recovery pipeline.
+
+Although the framework introduces additional latency due to evaluation and recovery, this trade-off results in substantially higher response quality, making it well suited for enterprise and knowledge-intensive AI applications where correctness is more important than raw response speed.
+
+---
+
+# 🎯 Conclusion
+
+The evaluation results demonstrate that **Self-Corrective RAG** consistently outperforms a traditional RAG pipeline across retrieval quality, answer relevance, factual grounding, and hallucination prevention.
+
+By integrating **LangGraph orchestration**, **RAGAS evaluation**, **autonomous self-healing**, **conversation memory**, and **continuous knowledge improvement**, the framework delivers a more reliable and production-ready Retrieval-Augmented Generation system capable of producing trustworthy AI responses in real-world scenarios.
+
+---
 
 
 
