@@ -890,7 +890,387 @@ Rather than producing answers based solely on model knowledge, the pipeline ensu
 
 ---
 
+# 📊 Evaluation Pipeline
 
+<p align="center">
+<img src="images/Evaluation.png" width="100%">
+</p>
+
+The **Evaluation Pipeline** is the quality assurance layer of the Self-Corrective RAG framework. Instead of assuming that every generated response is correct, it systematically measures the quality of the answer before it is delivered to the user.
+
+This pipeline verifies whether the response is grounded in retrieved evidence, detects hallucinations, estimates confidence, computes RAGAS metrics, and determines whether the answer should be accepted or sent to the Self-Healing Pipeline for autonomous recovery.
+
+Rather than relying solely on LLM output, the Evaluation Pipeline acts as an independent decision-making layer that ensures every response satisfies predefined quality standards.
+
+---
+
+## 🎯 Purpose
+
+Evaluate the generated response to determine its factual reliability, grounding quality, and overall confidence before returning it to the user.
+
+---
+
+## 🛠 Responsibilities
+
+- Verify response grounding
+- Detect hallucinations
+- Compute confidence scores
+- Evaluate RAGAS metrics
+- Assess response quality
+- Recommend retry strategies
+- Generate evaluation reports
+- Decide whether recovery is required
+
+---
+
+## 📥 Inputs
+
+The Evaluation Pipeline receives:
+
+- Original user query
+- Generated response
+- Retrieved context
+- Source citations
+- Runtime metadata
+- Optional ground-truth answers (benchmark mode)
+
+---
+
+## 📤 Outputs
+
+After execution, the pipeline produces:
+
+- Evaluation report
+- Confidence score
+- Grounding score
+- Hallucination assessment
+- RAGAS metrics
+- Recovery recommendation
+- Final evaluation status (Pass / Review / Fail)
+
+---
+
+## 🔄 Internal Workflow
+
+```text
+Generated Response
+        │
+        ▼
+Grounding Verification
+        │
+        ▼
+Hallucination Detection
+        │
+        ▼
+Confidence Scoring
+        │
+        ▼
+RAGAS Evaluation
+        │
+        ▼
+Policy Decision Engine
+        │
+        ▼
+Retry Recommendation
+        │
+        ▼
+Evaluation Report
+```
+
+---
+
+## 🧩 Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Grounding Evaluator** | Verifies that every generated statement is supported by retrieved evidence |
+| **Hallucination Detector** | Identifies unsupported or fabricated information |
+| **Confidence Scorer** | Estimates overall response reliability using multiple evaluation signals |
+| **RAGAS Evaluator** | Computes Faithfulness, Answer Relevancy, Context Precision, and Context Recall |
+| **Decision Engine** | Determines whether the response should be accepted or recovered |
+| **Retry Recommendation** | Suggests the most appropriate recovery strategy based on failure analysis |
+
+---
+
+## 💡 Why It Matters
+
+Traditional RAG systems assume that once an answer is generated, it is ready to be returned.
+
+In reality, retrieval failures, incomplete context, and hallucinations often go undetected.
+
+The Evaluation Pipeline acts as a safeguard by ensuring that every response is validated before it reaches the user.
+
+This results in:
+
+- Higher factual accuracy
+- Reduced hallucination rates
+- More trustworthy AI responses
+- Better retrieval quality feedback
+- Automated quality assurance
+
+By introducing an independent evaluation stage, the system transforms response generation into a measurable and continuously improving process.
+
+---
+
+# 🔄 Self-Healing Pipeline
+
+<p align="center">
+<img src="images/self-healing.png" width="100%">
+</p>
+
+The **Self-Healing Pipeline** is the defining feature of the project. When the Evaluation Pipeline identifies a low-quality response, this subsystem autonomously analyzes the failure, selects an appropriate recovery strategy, executes corrective actions, and attempts to improve the final answer without requiring user intervention.
+
+Instead of returning unreliable responses, the system actively repairs retrieval failures, hallucinations, and knowledge gaps before generating a new answer.
+
+This transforms the framework from a traditional RAG implementation into a truly **self-corrective AI system**.
+
+---
+
+## 🎯 Purpose
+
+Automatically recover from retrieval and generation failures by selecting and executing intelligent recovery strategies.
+
+---
+
+## 🛠 Responsibilities
+
+- Diagnose response failures
+- Select recovery strategy
+- Rewrite ambiguous queries
+- Trigger web search fallback
+- Merge additional context
+- Detect knowledge gaps
+- Generate recovery plans
+- Prevent unnecessary retries
+
+---
+
+## 📥 Inputs
+
+The Self-Healing Pipeline receives:
+
+- Evaluation report
+- Confidence score
+- Hallucination assessment
+- Generated response
+- Retrieved context
+- Original user query
+- Runtime metadata
+
+---
+
+## 📤 Outputs
+
+The pipeline produces:
+
+- Recovery plan
+- Recovery actions
+- Updated retrieval context
+- Retry decision
+- Knowledge-gap records
+- Recovery metadata
+
+---
+
+## 🔄 Internal Workflow
+
+```text
+Evaluation Report
+        │
+        ▼
+Failure Diagnosis
+        │
+        ▼
+Recovery Strategy Selection
+        │
+        ▼
+Recovery Execution
+        │
+        ▼
+Knowledge Gap Detection
+        │
+        ▼
+Learning & Ingestion
+        │
+        ▼
+Recovery Plan
+```
+
+---
+
+## 🧩 Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Failure Analyzer** | Determines why the response failed evaluation |
+| **Recovery Planner** | Selects the most suitable recovery strategy |
+| **Recovery Executor** | Performs query rewriting, context expansion, or web search |
+| **Knowledge Gap Detector** | Identifies missing information in the knowledge base |
+| **Learning Manager** | Records gaps for future ingestion and continuous improvement |
+| **Recovery Metadata** | Tracks retries, execution history, and recovery statistics |
+
+---
+
+## 💡 Why It Matters
+
+Most RAG systems terminate after generation—even if the answer is incorrect.
+
+The Self-Healing Pipeline introduces an autonomous recovery layer capable of repairing failures before users ever see them.
+
+Typical recovery actions include:
+
+- Query rewriting
+- Additional semantic retrieval
+- Web search fallback
+- Context merging
+- Clarification requests
+- Knowledge-gap identification
+
+This significantly improves:
+
+- Response quality
+- Robustness
+- User trust
+- Retrieval accuracy
+- Enterprise reliability
+
+The result is an AI system capable of continuously improving itself through feedback and recovery.
+
+---
+
+# 🕸️ LangGraph Workflow
+
+<p align="center">
+<img src="images/graph.png" width="100%">
+</p>
+
+The **LangGraph Workflow** serves as the orchestration engine for the entire Self-Corrective RAG framework. Instead of executing a rigid linear pipeline, LangGraph models the application as a directed graph where each node represents a specialized pipeline and edges define intelligent execution paths.
+
+This graph-based architecture enables conditional routing, cyclic execution, retry management, and autonomous recovery while maintaining a shared execution state throughout the workflow.
+
+It acts as the "operating system" of the framework, coordinating every subsystem from the initial user query to the final persisted response.
+
+---
+
+## 🎯 Purpose
+
+Coordinate the execution of all AI pipelines through an intelligent graph capable of routing, retries, recovery, and state management.
+
+---
+
+## 🛠 Responsibilities
+
+- Orchestrate pipeline execution
+- Manage shared graph state
+- Route execution conditionally
+- Coordinate retries
+- Prevent infinite loops
+- Persist execution results
+- Maintain workflow consistency
+
+---
+
+## 📥 Inputs
+
+The LangGraph Workflow receives:
+
+- User query
+- Session information
+- Runtime configuration
+- Dependency-injected services
+- Graph execution state
+
+---
+
+## 📤 Outputs
+
+The workflow produces:
+
+- Final AI response
+- Updated conversation memory
+- Execution trace
+- Workflow metadata
+- Persisted session state
+- Performance statistics
+
+---
+
+## 🔄 Internal Workflow
+
+```text
+User Query
+      │
+      ▼
+Input Preparation
+      │
+      ▼
+Memory Pipeline
+      │
+      ▼
+Retrieval Pipeline
+      │
+      ▼
+Generation Pipeline
+      │
+      ▼
+Evaluation Pipeline
+      │
+      ▼
+Self-Healing Pipeline
+      │
+      ▼
+Retry Guard
+      │
+      ├──────────────┐
+      │ Retry Needed │
+      ▼              │
+ Retrieval Pipeline  │
+      │              │
+      └──────────────┘
+             │
+             ▼
+Final Response
+      │
+      ▼
+Persist Memory
+```
+
+---
+
+## 🧩 Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Graph Builder** | Constructs the workflow by registering nodes and edges |
+| **Workflow Engine** | Executes graph nodes in sequence while maintaining state |
+| **Graph State** | Stores intermediate data shared across all pipelines |
+| **Conditional Router** | Dynamically selects the next execution path based on evaluation results |
+| **Retry Guard** | Prevents infinite execution loops and enforces retry limits |
+| **Persistence Layer** | Saves conversations, summaries, execution logs, and metadata |
+
+---
+
+## 💡 Why It Matters
+
+Without orchestration, each pipeline would function as an isolated component with no coordinated execution strategy.
+
+LangGraph provides the intelligence required to transform independent modules into a cohesive autonomous AI system.
+
+Its graph-based execution enables:
+
+- Dynamic workflow routing
+- Autonomous recovery cycles
+- Shared execution state
+- Modular pipeline integration
+- Retry management
+- Continuous observability
+- Easy extensibility for future AI capabilities
+
+Rather than simply connecting components together, LangGraph enables the entire system to **reason about its own execution**, making Self-Corrective RAG significantly more resilient, maintainable, and production-ready.
+
+---
+
+> **With the pipeline architecture complete, the next section explores the core capabilities of the framework, the technologies powering each subsystem, and the overall project structure.**
 
 
 
