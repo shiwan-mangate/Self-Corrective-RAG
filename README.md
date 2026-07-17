@@ -1270,7 +1270,404 @@ Rather than simply connecting components together, LangGraph enables the entire 
 
 ---
 
-> **With the pipeline architecture complete, the next section explores the core capabilities of the framework, the technologies powering each subsystem, and the overall project structure.**
+# 🚀 Features & Technology
+
+Self-Corrective RAG is built as a **production-grade, modular, and evaluation-driven Retrieval-Augmented Generation framework**. Instead of functioning as a simple chatbot, the system combines document processing, semantic retrieval, response generation, evaluation, autonomous recovery, and workflow orchestration into a unified AI platform.
+
+The architecture emphasizes **accuracy**, **reliability**, **observability**, and **continuous improvement**, making it suitable for enterprise knowledge assistants, internal search systems, customer support automation, and intelligent document-based applications.
+
+---
+
+# ✨ Core Features
+
+## 📥 Multi-format Document Ingestion
+
+Supports ingestion from multiple document formats through a modular loader architecture.
+
+**Capabilities**
+
+- PDF Documents
+- Microsoft Word Documents
+- Plain Text Files
+- Markdown Files
+- Web Pages
+- Enterprise Knowledge Sources
+
+Every document passes through parsing, cleaning, metadata enrichment, chunking, embedding generation, and vector storage before becoming searchable.
+
+---
+
+## 🧩 Intelligent Chunking
+
+Instead of naïve fixed-length splitting, documents are divided into semantically meaningful chunks to preserve contextual relationships.
+
+Benefits include:
+
+- Improved retrieval quality
+- Reduced context fragmentation
+- Better semantic similarity
+- Higher answer relevance
+
+---
+
+## 🔍 Semantic Retrieval
+
+Retrieves context using vector similarity search powered by Hugging Face embeddings and PostgreSQL pgvector.
+
+The retrieval subsystem includes:
+
+- Query analysis
+- Semantic search
+- Context filtering
+- Relevance reranking
+- Context assembly
+
+This significantly improves retrieval precision over keyword-based search.
+
+---
+
+## ✍️ Query Rewriting
+
+Automatically rewrites ambiguous or incomplete user queries before retrieval.
+
+Examples include:
+
+- Expanding short questions
+- Resolving vague references
+- Improving search intent
+- Optimizing semantic matching
+
+This increases retrieval quality without requiring users to reformulate their questions.
+
+---
+
+## 📚 Context Builder
+
+Constructs an optimized context package from retrieved documents.
+
+Responsibilities include:
+
+- Duplicate removal
+- Context ordering
+- Metadata preservation
+- Token budget optimization
+
+Only the highest-quality information is forwarded to the language model.
+
+---
+
+## 🧠 Grounded Generation
+
+Responses are generated exclusively from retrieved knowledge rather than relying solely on model memory.
+
+This reduces hallucinations while increasing factual consistency.
+
+Key characteristics:
+
+- Context-aware prompting
+- Strict grounding
+- Controlled prompt construction
+- Response traceability
+
+---
+
+## 📖 Automatic Citation Extraction
+
+Every generated response is linked back to the supporting document chunks used during generation.
+
+Benefits include:
+
+- Explainability
+- Source transparency
+- Easier verification
+- Enterprise auditability
+
+---
+
+## 🛡️ Hallucination Detection
+
+Every generated response undergoes automatic hallucination detection before reaching the user.
+
+The evaluator identifies:
+
+- Unsupported claims
+- Fabricated facts
+- Missing evidence
+- Context inconsistencies
+
+Only validated responses are accepted.
+
+---
+
+## 📊 Confidence Scoring
+
+Each answer receives an overall confidence score derived from multiple evaluation signals.
+
+Signals include:
+
+- Retrieval quality
+- Grounding score
+- Hallucination likelihood
+- Citation coverage
+- Context relevance
+
+Confidence scores drive downstream recovery decisions.
+
+---
+
+## 📈 RAGAS Evaluation
+
+The framework integrates **RAGAS** to evaluate retrieval and generation quality using standardized metrics.
+
+Measured metrics include:
+
+- Faithfulness
+- Answer Relevancy
+- Context Precision
+- Context Recall
+
+These metrics support benchmarking, regression testing, and continuous performance monitoring.
+
+---
+
+## 🔄 Self-Healing Recovery
+
+One of the defining features of the project.
+
+Instead of returning poor responses, the system automatically attempts to recover.
+
+Recovery strategies include:
+
+- Query rewriting
+- Additional retrieval
+- Web search
+- Context merging
+- Clarification
+- Knowledge-gap detection
+
+This creates a resilient, feedback-driven RAG architecture.
+
+---
+
+## 🌐 Web Search Fallback
+
+When the local knowledge base cannot answer a query confidently, the framework performs an external web search using Tavily.
+
+This enables:
+
+- Current information retrieval
+- Out-of-domain question handling
+- Knowledge augmentation
+- Higher response coverage
+
+---
+
+## 🧩 Knowledge Gap Detection
+
+The system identifies missing knowledge whenever retrieval repeatedly fails.
+
+Detected gaps are stored for future ingestion, allowing the knowledge base to continuously evolve.
+
+This introduces a feedback loop between production usage and future knowledge expansion.
+
+---
+
+## 📚 Continuous Learning
+
+Rather than treating failures as terminal events, the framework converts them into learning opportunities.
+
+It continuously records:
+
+- Missing topics
+- Failed retrieval attempts
+- Low-confidence responses
+- Recovery history
+
+This enables iterative improvement of the knowledge base over time.
+
+---
+
+## 💬 Conversation Memory
+
+Maintains conversational continuity across multiple interactions.
+
+Capabilities include:
+
+- Session management
+- Conversation history
+- Long-term summaries
+- Memory compression
+- Context persistence
+
+This enables accurate multi-turn conversations while remaining token-efficient.
+
+---
+
+## 🕸️ LangGraph Orchestration
+
+All pipelines are coordinated through LangGraph.
+
+Responsibilities include:
+
+- Workflow execution
+- Conditional routing
+- State management
+- Retry handling
+- Pipeline orchestration
+
+LangGraph acts as the execution engine of the entire system.
+
+---
+
+## 🚦 Retry Guard
+
+Prevents infinite recovery loops during autonomous execution.
+
+The retry mechanism:
+
+- Limits recovery attempts
+- Tracks execution history
+- Stops cyclic failures
+- Routes execution intelligently
+
+This ensures stable and predictable workflow execution.
+
+---
+
+## ⚡ Production-Ready API
+
+The framework exposes all functionality through a FastAPI application designed for production deployment.
+
+Features include:
+
+- RESTful API
+- Automatic Swagger documentation
+- Dependency injection
+- Health monitoring
+- Docker deployment
+- Render deployment
+
+---
+
+# 🛠️ Technology Stack
+
+The project leverages a modern AI technology stack designed for scalability, modularity, and production readiness.
+
+| Category | Technology |
+|-----------|------------|
+| **Programming Language** | Python 3.11+ |
+| **Backend Framework** | FastAPI |
+| **Workflow Orchestration** | LangGraph |
+| **LLM Framework** | LangChain |
+| **Large Language Model** | Groq |
+| **Embedding Model** | Hugging Face Embeddings |
+| **Relational Database** | PostgreSQL |
+| **Vector Database** | pgvector |
+| **ORM** | SQLAlchemy |
+| **Database Migration** | Alembic |
+| **Evaluation Framework** | RAGAS |
+| **Deployment** | Docker |
+| **Cloud Hosting** | Render |
+| **Package Management** | pip |
+| **API Documentation** | Swagger / OpenAPI |
+
+---
+
+# 📁 Project Structure
+
+The repository follows a clean, modular architecture where each directory represents an independent subsystem of the Self-Corrective RAG framework.
+
+```text
+Self-Corrective-RAG/
+│
+├── api/                    # FastAPI application and REST endpoints
+│
+├── ai/                     # LLM services, embeddings, evaluation models
+│
+├── config/                 # Centralized application configuration
+│
+├── core/                   # Dependency injection and application lifecycle
+│
+├── database/
+│   ├── models/             # SQLAlchemy database models
+│   ├── repositories/       # Data access layer
+│   └── migrations/         # Alembic migration scripts
+│
+├── evaluation/             # Response evaluation pipeline
+│
+├── generation/             # Prompt construction and answer generation
+│
+├── graph/                  # LangGraph workflow and orchestration
+│
+├── ingestion/              # Document ingestion pipeline
+│
+├── memory/                 # Conversation memory subsystem
+│
+├── retrieval/              # Semantic retrieval pipeline
+│
+├── self_healing/           # Autonomous recovery pipeline
+│
+├── scripts/                # Utility and maintenance scripts
+│
+├── tests/
+│   ├── unit/               # Unit tests
+│   ├── integration/        # Integration tests
+│   └── e2e/                # End-to-End tests
+│
+├── images/                 # Architecture diagrams used in README
+│
+├── benchmarks/             # Benchmark datasets and evaluation results
+│
+├── docs/                   # Project documentation
+│
+├── Dockerfile              # Docker container configuration
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation
+└── .env.example            # Environment variable template
+```
+
+---
+
+# 🏛️ Folder Overview
+
+| Folder | Description |
+|----------|-------------|
+| **api/** | Exposes REST endpoints for document ingestion, querying, health monitoring, and system interaction. |
+| **ai/** | Contains embedding services, language model integrations, evaluation utilities, and AI-specific components. |
+| **config/** | Centralized application settings loaded from environment variables. |
+| **core/** | Initializes dependency injection, application startup, shutdown, and shared services. |
+| **database/** | Database models, repositories, migrations, and persistence layer for PostgreSQL. |
+| **ingestion/** | Converts raw documents into searchable vector embeddings. |
+| **memory/** | Manages conversation sessions, summaries, and long-term contextual memory. |
+| **retrieval/** | Retrieves, filters, reranks, and prepares contextual information for generation. |
+| **generation/** | Builds prompts, invokes the language model, extracts citations, and formats responses. |
+| **evaluation/** | Measures answer quality, grounding, hallucination risk, confidence, and RAGAS metrics. |
+| **self_healing/** | Diagnoses failures and performs autonomous recovery using intelligent retry strategies. |
+| **graph/** | Implements the LangGraph workflow, routing logic, graph state, and execution engine. |
+| **tests/** | Contains comprehensive Unit, Integration, and End-to-End testing suites. |
+| **benchmarks/** | Stores benchmark datasets, evaluation scripts, and performance reports. |
+| **images/** | Architecture diagrams and visual assets referenced throughout the README. |
+| **scripts/** | Utility scripts for ingestion, benchmarking, debugging, and maintenance tasks. |
+
+---
+
+## 🏗️ Architectural Philosophy
+
+The project is intentionally organized around **functional pipelines** rather than isolated utility modules.
+
+Each subsystem:
+
+- Owns a single responsibility.
+- Exposes a clean public interface.
+- Can be tested independently.
+- Supports dependency injection.
+- Integrates seamlessly through LangGraph.
+
+This modular architecture makes the framework highly maintainable, scalable, and easy to extend with new retrieval strategies, evaluation metrics, recovery mechanisms, or orchestration nodes without affecting the rest of the system.
+
+---
+
+> **Next:** The following section explains how to set up the project locally, configure environment variables, deploy with Docker, and run the Self-Corrective RAG API in a production-ready environment.
 
 
 
