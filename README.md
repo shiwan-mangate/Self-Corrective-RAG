@@ -2598,7 +2598,156 @@ Future development will continue to focus on:
 By combining robust testing with a clear development roadmap, the project is designed to remain maintainable, extensible, and production-ready as new AI capabilities continue to emerge.
 
 ---
+# 📄 License & Author
 
-> **Next:** The final section includes the project license, acknowledgements, and author information.
+Thank you for exploring the **Self-Corrective RAG** project.
+
+This framework was built as an end-to-end implementation of a production-grade, evaluation-driven Retrieval-Augmented Generation system that combines intelligent retrieval, response generation, autonomous evaluation, and self-healing capabilities into a modular architecture orchestrated by LangGraph.
+
+Whether you're using this project for learning, research, or production, you're welcome to explore, modify, and extend it under the terms of the MIT License.
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+```
+MIT License
+
+Copyright (c) 2026 Shiwan Mangate
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+For the complete license text, see the **LICENSE** file in the repository.
+
+---
+
+# 👨‍💻 Author
+
+## Shiwan Mangate
+
+**Artificial Intelligence Undergraduate**  
+**National Institute of Technology Rourkela**
+
+Passionate about building **production-ready AI systems**, **Generative AI applications**, **Retrieval-Augmented Generation (RAG)** frameworks, **Agentic AI**, and **Large Language Model (LLM)** applications.
+
+---
+
+## 🌐 Connect with Me
+
+### GitHub
+
+**Repository**
+
+```
+https://github.com/shiwan-mangate/Self-Corrective-RAG
+```
+
+**Profile**
+
+```
+https://github.com/shiwan-mangate
+```
+
+---
+
+### LinkedIn
+
+```
+https://www.linkedin.com/in/shiwan-mangate/
+```
+
+---
+
+## 💬 About This Project
+
+Self-Corrective RAG was developed to explore the next generation of Retrieval-Augmented Generation systems by moving beyond traditional single-pass architectures.
+
+The project demonstrates how evaluation, autonomous recovery, and graph-based orchestration can work together to improve response quality, reduce hallucinations, and create more reliable AI applications.
+
+Core areas explored include:
+
+- Retrieval-Augmented Generation (RAG)
+- LangGraph Workflow Orchestration
+- Large Language Models
+- Semantic Search
+- Response Evaluation
+- Autonomous Self-Healing
+- Conversation Memory
+- Production AI System Design
+
+---
+
+# 🤝 Contributing
+
+Contributions are always welcome.
+
+If you have ideas for improvements, discover bugs, or want to add new capabilities, feel free to:
+
+- Fork the repository
+- Create a feature branch
+- Submit a Pull Request
+- Open an Issue
+- Share suggestions and feedback
+
+Every contribution—big or small—helps improve the project.
+
+---
+
+# ⭐ Support the Project
+
+If you found this project helpful, please consider giving it a ⭐ on GitHub.
+
+Your support helps increase the visibility of the project and encourages continued development.
+
+---
+
+# 🙏 Acknowledgements
+
+This project was made possible by the amazing open-source ecosystem and the communities behind these technologies:
+
+- LangGraph
+- LangChain
+- FastAPI
+- Hugging Face
+- Groq
+- PostgreSQL
+- pgvector
+- SQLAlchemy
+- Alembic
+- RAGAS
+- Docker
+- Render
+
+A sincere thank you to all the developers and contributors who continue to advance open-source AI.
+
+---
+
+# 🎯 Final Thoughts
+
+Self-Corrective RAG is more than a traditional Retrieval-Augmented Generation pipeline—it demonstrates an architecture where an AI system can evaluate its own outputs, recover from failures, and continuously improve through feedback-driven workflows.
+
+By combining **semantic retrieval**, **grounded generation**, **RAGAS evaluation**, **autonomous self-healing**, **conversation memory**, and **LangGraph orchestration**, this project provides a strong foundation for building reliable, explainable, and production-ready AI applications.
+
+If this repository helps you in your learning, research, or development journey, consider giving it a ⭐ and sharing it with others.
+
 
 
